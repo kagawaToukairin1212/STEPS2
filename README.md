@@ -67,4 +67,3 @@ SNSや直接の宣伝などが主となると思われます。
 
 push test:test
 
-commit test :commit_test
