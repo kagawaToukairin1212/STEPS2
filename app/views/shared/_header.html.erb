@@ -10,9 +10,29 @@
 
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
-      <li><a href="#">質問記録</a></li>
-      <li><a href="#">ログイン</a></li>
-      <li><a href="#">会員登録</a></li>
+        <li class='nav-item dropdown dropdown-slide'>
+          <%= link_to '掲示板', '#', class: 'nav-link dropdown-toggle', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
+          <div class='dropdown-menu dropdown-menu-end'>
+            <%= link_to '掲示板一覧', '#', class: 'dropdown-item' %>
+            <%= link_to '掲示板作成', '#', class: 'dropdown-item' %>
+          </div>
+        </li>
+
+        <li class='nav-item'>
+          <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
+        </li>
+
+        <li class='nav-item dropdown dropdown-slide'>
+          <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
+            <%= image_tag 'sample.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
+          <% end %>
+          <div class='dropdown-menu dropdown-menu-end'>
+            <div class='dropdown-item'>らんてっく たろう</div>
+            <div class='dropdown-divider'></div>
+            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
+            <%= link_to 'ログアウト', '#', class: 'dropdown-item', data: { turbo_method: :delete } %>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>

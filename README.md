@@ -67,3 +67,11 @@ SNSや直接の宣伝などが主となると思われます。
 
 push test:test
 
+css 実行手順
+
+app/views/layouts/application.html.erb
+　<%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+app/assets/stylesheets/application.bootstrap.scss
+app/assets/config/manifest.js
+package.json
+public
