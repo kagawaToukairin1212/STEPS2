@@ -1,0 +1,23 @@
+<div class="container my-5">
+  <h1 class="text-center mb-4">会員情報</h1>
+
+  <div class="card mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+      <table class="table">
+        <tr>
+          <th>ユーザー名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td>******</td>
+        </tr>
+      </table>
+      <a href="#" class="btn btn-primary btn-block">会員情報を更新する</a>
+    </div>
+  </div>
+</div>
