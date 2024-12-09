@@ -14,6 +14,14 @@ class UsersController < ApplicationController
       end
     end
 
+    def mypage
+      @user = current_user # ログイン中のユーザー情報を取得
+    end
+  
+    def profile
+      @user = current_user # ログイン中のユーザー情報を取得
+    end
+
     private
 
     def user_params
