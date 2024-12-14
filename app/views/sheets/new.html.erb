@@ -1,0 +1,19 @@
+<%= form_with model: @sheet, url: sheets_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "シートタイトル" %>
+    <%= f.text_field :title, class: "form-control", required: true %>
+  </div>
+
+  <div id="evaluation-items">
+    <% @evaluation_departments.each do |item| %>
+      <div class="form-group">
+        <label><%= item.name %></label>
+        <input type="hidden" name="evaluation_items[][evaluation_department_id]" value="<%= item.id %>">
+        <textarea name="evaluation_items[][goal]" class="form-control" placeholder="目標を入力してください" required></textarea>
+      </div>
+    <% end %>
+  </div>
+
+  <button type="submit" class="btn btn-primary">保存する</button>
+<% end %>
+  

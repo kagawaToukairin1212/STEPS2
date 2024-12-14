@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   delete "logout", to: "user_sessions#destroy"
   get 'mypage', to: 'users#mypage', as: :mypage
   get 'profile', to: 'users#profile', as: :profile
+  resources :sheets, only: [:new, :create, :index, :show]
+  get 'sheet_show/:id', to: 'sheets#show', as: 'sheet_show'
 
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   # get "up" => "rails/health#show", as: :rails_health_check

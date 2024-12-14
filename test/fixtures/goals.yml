@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sheet: one
+  evaluation_department: one
+  value: MyText
+
+two:
+  sheet: two
+  evaluation_department: two
+  value: MyText

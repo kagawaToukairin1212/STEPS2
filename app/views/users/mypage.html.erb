@@ -12,14 +12,23 @@
     <!-- 右側: リンク一覧 -->
     <div class="col-md-6">
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">
-          シートの追加、目標の変更をする
+        <a href="<%= new_sheet_path %>" class="list-group-item list-group-item-action">
+          シートを追加する
         </a>
         <a href="#" class="list-group-item list-group-item-action">
-          結果を入力、経過を確認する
+          目標の変更をする
+        </a>
+        <a href="sheet_input_score" class="list-group-item list-group-item-action">
+          結果を入力する
+        </a>
+        <a href="sheet_show" class="list-group-item list-group-item-action">
+          経過を確認する
         </a>
         <a href="#" class="list-group-item list-group-item-action">
-          質問をする
+          グラフをダウンロードする
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          シートを削除する
         </a>
       </div>
     </div>

@@ -39,6 +39,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 gem "stringio", "3.0.4"
 gem "sorcery", "0.16.3"
+gem "chart-js-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
