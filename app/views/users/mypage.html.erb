@@ -18,12 +18,17 @@
         <a href="#" class="list-group-item list-group-item-action">
           目標の変更をする
         </a>
-        <a href="sheet_input_score" class="list-group-item list-group-item-action">
-          結果を入力する
-        </a>
-        <a href="sheet_show" class="list-group-item list-group-item-action">
-          経過を確認する
-        </a>
+        
+        <% @sheets.each do |sheet| %>
+          <%= link_to "結果を入力する: #{sheet.title}", sheet_evaluation_scores_path(sheet), class: 'btn btn-primary' %>
+        <% end %>
+
+
+        <% @sheets.each do |sheet| %>
+          <a href="<%= sheet_path(sheet) %>" class="list-group-item list-group-item-action">
+            経過を確認する: <%= sheet.title %>
+          </a>
+        <% end %>
         <a href="#" class="list-group-item list-group-item-action">
           グラフをダウンロードする
         </a>

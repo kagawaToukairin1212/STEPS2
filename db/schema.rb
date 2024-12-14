@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_12_111550) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_12_111549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,13 +22,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_111550) do
   end
 
   create_table "evaluation_scores", force: :cascade do |t|
-    t.bigint "sheet_id", null: false
-    t.bigint "evaluation_department_id", null: false
-    t.integer "result"
+    t.bigint "goal_id", null: false
+    t.integer "result", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["evaluation_department_id"], name: "index_evaluation_scores_on_evaluation_department_id"
-    t.index ["sheet_id"], name: "index_evaluation_scores_on_sheet_id"
+    t.index ["goal_id"], name: "index_evaluation_scores_on_goal_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -59,8 +57,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_111550) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "evaluation_scores", "evaluation_departments"
-  add_foreign_key "evaluation_scores", "sheets"
+  add_foreign_key "evaluation_scores", "goals"
   add_foreign_key "goals", "evaluation_departments"
   add_foreign_key "goals", "sheets"
   add_foreign_key "sheets", "users"

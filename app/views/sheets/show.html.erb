@@ -1,22 +1,24 @@
 <canvas id="radar-chart" width="400" height="400"></canvas>
 <script>
-  var ctx = document.getElementById('radar-chart').getContext('2d');
-  var radarChart = new Chart(ctx, {
-    type: 'radar',
-    data: {
-      labels: <%= @sheet.evaluation_items.pluck(:name).to_json %>,
-      datasets: [{
-        label: '目標',
-        data: <%= @sheet.evaluation_items.pluck(:goal_value).to_json %>,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scale: {
-        ticks: { beginAtZero: true }
+  document.addEventListener("DOMContentLoaded", function() {
+    var ctx = document.getElementById('radar-chart').getContext('2d');
+    var radarChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: <%= @sheet.goals.includes(:evaluation_department).map { |goal| goal.evaluation_department.name }.to_json %>,
+        datasets: [{
+          label: '目標',
+          data: <%= @sheet.goals.pluck(:value).to_json %>,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scale: {
+          ticks: { beginAtZero: true }
+        }
       }
-    }
+    });
   });
 </script>
