@@ -17,7 +17,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: db
+  host: steps2-db-1
   username: postgres
   password: password
 

@@ -12,14 +12,28 @@
     <!-- 右側: リンク一覧 -->
     <div class="col-md-6">
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">
-          シートの追加、目標の変更をする
+        <a href="<%= new_sheet_path %>" class="list-group-item list-group-item-action">
+          シートを追加する
         </a>
         <a href="#" class="list-group-item list-group-item-action">
-          結果を入力、経過を確認する
+          目標の変更をする
+        </a>
+        
+        <% @sheets.each do |sheet| %>
+          <%= link_to "結果を入力する: #{sheet.title}", sheet_evaluation_scores_path(sheet), class: 'btn btn-primary' %>
+        <% end %>
+
+
+        <% @sheets.each do |sheet| %>
+          <a href="<%= sheet_path(sheet) %>" class="list-group-item list-group-item-action">
+            経過を確認する: <%= sheet.title %>
+          </a>
+        <% end %>
+        <a href="#" class="list-group-item list-group-item-action">
+          グラフをダウンロードする
         </a>
         <a href="#" class="list-group-item list-group-item-action">
-          質問をする
+          シートを削除する
         </a>
       </div>
     </div>

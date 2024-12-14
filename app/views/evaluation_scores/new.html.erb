@@ -1,0 +1,11 @@
+<%= form_with url: sheet_evaluation_scores_path(@sheet), method: :post, local: true do |f| %>
+    <% @sheet.goals.each do |goal| %>
+      <div class="form-group">
+        <label><%= goal.evaluation_department.name %></label>
+        <%= hidden_field_tag "scores[][goal_id]", goal.id %> <!-- GoalのIDを送信 -->
+        <%= number_field_tag "scores[][result]", nil, class: "form-control", required: true, min: 0, max: 10 %>
+      </div>
+    <% end %>
+    <button type="submit" class="btn btn-primary">保存する</button>
+<% end %>
+  
