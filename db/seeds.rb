@@ -10,7 +10,7 @@ EvaluationDepartment.create([
   { name: "反応能力", default: true },
   { name: "連結能力", default: true },
   { name: "定位能力", default: true },
-  { name: "識別能力", default: true },
+  { name: "識別能力", default: true }
   # 追加の項目は`default: false`に設定
   # { name: "新しい項目1", default: false },
   # { name: "新しい項目2", default: false }

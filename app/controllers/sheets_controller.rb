@@ -1,5 +1,4 @@
 class SheetsController < ApplicationController
-
   def new
     @sheet = Sheet.new
     @evaluation_departments = EvaluationDepartment.where(default: true) # 初期項目のみ取得
@@ -14,9 +13,9 @@ class SheetsController < ApplicationController
           value: item[:goal]
         )
       end
-      redirect_to mypage_path, notice: 'シートが作成されました'
+      redirect_to mypage_path, notice: "シートが作成されました"
     else
-      flash.now[:alert] = 'シートの作成に失敗しました'
+      flash.now[:alert] = "シートの作成に失敗しました"
       render :new
     end
   end

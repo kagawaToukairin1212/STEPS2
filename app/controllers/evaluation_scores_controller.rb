@@ -1,5 +1,5 @@
 class EvaluationScoresController < ApplicationController
-  before_action :set_sheet, only: [:new, :create, :index]
+  before_action :set_sheet, only: [ :new, :create, :index ]
 
   def new
     @goals = @sheet.goals
@@ -13,12 +13,12 @@ class EvaluationScoresController < ApplicationController
         EvaluationScore.create!(score_params.permit(:goal_id, :result))
       end
     end
-    redirect_to sheet_path(@sheet), notice: '結果が保存されました！'
+    redirect_to sheet_path(@sheet), notice: "結果が保存されました！"
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotFound => e
     flash.now[:alert] = "エラーが発生しました: #{e.message}"
     render :new
   end
-  
+
 
   def index
     @sheet = Sheet.find(params[:sheet_id])
@@ -32,4 +32,3 @@ class EvaluationScoresController < ApplicationController
     @sheet = current_user.sheets.find(params[:sheet_id])
   end
 end
-

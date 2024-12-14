@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user = current_user # ログイン中のユーザー情報を取得
       @sheets = current_user.sheets # 全シートを取得
     end
-  
+
     def profile
       @user = current_user # ログイン中のユーザー情報を取得
     end

@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
-  get 'mypage', to: 'users#mypage', as: :mypage
-  get 'profile', to: 'users#profile', as: :profile
-  resources :sheets, only: [:new, :create, :index, :show] do
-    resources :evaluation_scores, only: [:new, :create, :index]
+  get "mypage", to: "users#mypage", as: :mypage
+  get "profile", to: "users#profile", as: :profile
+  resources :sheets, only: [ :new, :create, :index, :show ] do
+    resources :evaluation_scores, only: [ :new, :create, :index ]
   end
-  
+
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   # get "up" => "rails/health#show", as: :rails_health_check
 
