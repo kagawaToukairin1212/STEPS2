@@ -16,7 +16,8 @@ class UsersController < ApplicationController
 
     def mypage
       @user = current_user # ログイン中のユーザー情報を取得
-      @sheets = current_user.sheets # 全シートを取得
+      # シートに紐づく評価スコアを取得
+      @sheets = current_user.sheets.includes(goals: :evaluation_scores)
     end
 
     def profile

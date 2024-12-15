@@ -40,6 +40,10 @@ gem "bootsnap", require: false
 gem "stringio", "3.0.4"
 gem "sorcery", "0.16.3"
 gem "chart-js-rails"
+gem "chartkick"
+gem "groupdate"
+gem 'importmap-rails'
+
 
 
 group :development, :test do
