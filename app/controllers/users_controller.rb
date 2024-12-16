@@ -16,7 +16,18 @@ class UsersController < ApplicationController
 
     def mypage
       @user = current_user # ログイン中のユーザー情報を取得
-      @sheets = current_user.sheets # 全シートを取得
+      # シートに紐づく評価スコアを取得
+      @sheets = current_user.sheets.includes(goals: :evaluation_scores)
+
+      # レーダーグラフ用データを生成
+      @radar_chart_data = @sheets.map do |sheet|
+        {
+          title: sheet.title,
+          labels: sheet.goals.map { |goal| goal.evaluation_department.name },
+          latestResults: sheet.goals.map { |goal| goal.evaluation_scores.pluck(:result).last || 0 },
+          previousResults: sheet.goals.map { |goal| goal.evaluation_scores.pluck(:result).second_to_last || 0 },
+        }
+      end
     end
 
     def profile
