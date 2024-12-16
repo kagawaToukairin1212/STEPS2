@@ -13,7 +13,7 @@ class EvaluationScoresController < ApplicationController
         EvaluationScore.create!(score_params.permit(:goal_id, :result))
       end
     end
-    redirect_to sheet_path(@sheet), notice: "結果が保存されました！"
+    redirect_to mypage_path, notice: "結果が保存されました！"
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotFound => e
     flash.now[:alert] = "エラーが発生しました: #{e.message}"
     render :new
