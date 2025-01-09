@@ -75,3 +75,5 @@ app/assets/stylesheets/application.bootstrap.scss
 app/assets/config/manifest.js
 package.json
 public
+
+更新用2025/01/09
