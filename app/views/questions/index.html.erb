@@ -1,0 +1,25 @@
+<h1>質問一覧</h1>
+<%= link_to '質問を作成する', new_question_path, class: 'btn btn-primary' %>
+<%= link_to '全ての質問', questions_path, class: 'btn btn-primary' %>
+<%= link_to '未解決の質問', questions_path(filter: 'unresolved'), class: 'btn btn-primary' %>
+<%= link_to '解決済みの質問', questions_path(filter: 'resolved'), class: 'btn btn-primary' %>
+<%= link_to '自分の質問', questions_path(filter: 'my_questions'), class: 'btn btn-primary' %>
+<%= link_to '回答した質問', questions_path(filter: 'answered'), class: 'btn btn-primary' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>件名</th>
+      <th>内容</th>
+      <th>投稿者</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= link_to question.subject, question_path(question) %></td>
+        <td><%= truncate(question.content, length: 100) %></td>
+        <td><%= question.user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

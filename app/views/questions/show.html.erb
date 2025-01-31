@@ -1,0 +1,54 @@
+<h1>質問内容</h1>
+<p><%= @question.subject %></p>
+<p><%= @question.content %></p>
+<p>投稿者: <%= @question.user.name %></p>
+
+<!-- 質問の編集・削除（投稿者のみ表示） -->
+<% if @question.user == current_user %>
+  <%= link_to edit_question_path(@question), class: "btn btn-outline-secondary btn-sm" do %>
+    <i class="bi bi-pencil-fill"></i> 編集
+  <% end %>
+
+  <%= button_to @question, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
+    <i class="bi bi-trash-fill"></i> 削除
+  <% end %>
+<% end %>
+
+<h1>返答一覧</h1>
+<% @question.question_responses.each do |response| %>
+  <div class="border p-2 my-2">
+    <p><strong><%= response.subject %></strong></p>
+    <p><%= response.content %></p>
+    <p>回答者: <%= response.user.name %></p>
+
+    <!-- 返答の編集・削除（投稿者のみ表示） -->
+    <% if response.user == current_user %>
+      <%= link_to edit_question_question_response_path(@question, response), class: "btn btn-outline-secondary btn-sm" do %>
+        <i class="bi bi-pencil-fill"></i> 編集
+      <% end %>
+
+      <%= button_to question_question_response_path(@question, response), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
+        <i class="bi bi-trash-fill"></i> 削除
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<h2>返答を入力</h2>
+<%= form_with(model: [@question, QuestionResponse.new], local: true) do |form| %>
+  <div>
+    <%= form.label :subject, "件名" %>
+    <%= form.text_field :subject, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :content, "返答内容" %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+  <%= form.submit "返答する", class: 'btn btn-primary' %>
+<% end %>
+
+<% if @question.unresolved? %>
+  <%= button_to "解決済みにする", update_status_question_path(@question), method: :patch, class: "btn btn-success" %>
+<% else %>
+  <%= button_to "未解決に戻す", update_status_question_path(@question), method: :patch, class: "btn btn-warning" %>
+<% end %>

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
           title: sheet.title,
           labels: sheet.goals.map { |goal| goal.evaluation_department.name },
           latestResults: sheet.goals.map { |goal| goal.evaluation_scores.pluck(:result).last || 0 },
-          previousResults: sheet.goals.map { |goal| goal.evaluation_scores.pluck(:result).second_to_last || 0 },
+          previousResults: sheet.goals.map { |goal| goal.evaluation_scores.pluck(:result).second_to_last || 0 }
         }
       end
     end
