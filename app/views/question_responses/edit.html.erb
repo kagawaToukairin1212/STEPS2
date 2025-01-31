@@ -1,0 +1,12 @@
+<h1>返答の編集</h1>
+<%= form_with(model: [@response.question, @response], local: true) do |form| %>
+  <div>
+    <%= form.label :subject, "件名" %>
+    <%= form.text_field :subject, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :content, "返答内容" %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+  <%= form.submit "更新する", class: 'btn btn-primary' %>
+<% end %>

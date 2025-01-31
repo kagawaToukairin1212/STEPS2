@@ -42,8 +42,9 @@ gem "sorcery", "0.16.3"
 gem "chart-js-rails"
 gem "chartkick"
 gem "groupdate"
-gem 'importmap-rails'
-
+gem "importmap-rails"
+gem "kaminari"
+gem "bootstrap5-kaminari-views"
 
 
 group :development, :test do

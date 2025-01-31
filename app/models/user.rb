@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Sorceryを使用した認証機能
   authenticates_with_sorcery!
   has_many :sheets, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   # パスワード関連のバリデーション（新規作成または変更時のみ適用）
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
