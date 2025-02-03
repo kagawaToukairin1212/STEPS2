@@ -1,3 +1,11 @@
+<% if current_user %>
+  <% google_form_url = "https://docs.google.com/forms/d/e/1FAIpQLSebnBru4r6DifsIZ4epAMlWIdZLxwg01AUMBpBM8Mun9vVIYQ/viewform?usp=header" +
+                      "entry.3368719=#{current_user.name}" +
+                      "&entry.429638414=#{current_user.email}" %>
+<% else %>
+  <% google_form_url = "https://docs.google.com/forms/d/e/1FAIpQLSebnBru4r6DifsIZ4epAMlWIdZLxwg01AUMBpBM8Mun9vVIYQ/viewform?usp=header" %>
+<% end %>
+
 <footer id='footer' class='footer-bottom'>
   <div class='container'>
     <div class='row'>
@@ -5,7 +13,7 @@
         <div class='copyright'>
           <ul>
             <li><a href="#">お問い合わせ</a></li>
-            <li><a href="#">レビュー依頼</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSebnBru4r6DifsIZ4epAMlWIdZLxwg01AUMBpBM8Mun9vVIYQ/viewform?usp=header" target="_blank" rel="noopener noreferrer">レビュー依頼、質問、ご意見など</a></li>
             <li><a href="#">利用規約</a></li>
             <li><a href="#">プライバシーポリシー</a></li>
           </ul>
