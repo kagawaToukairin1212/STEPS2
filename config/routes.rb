@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
   root "static_pages#top"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   resources :users, only: %i[new create]
@@ -22,6 +23,10 @@ Rails.application.routes.draw do
       get "answered"    # 自分が回答した質問
     end
     resources :question_responses, only: [ :create, :edit, :update, :destroy ]
+  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
 
