@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :question_responses, only: [ :create, :edit, :update, :destroy ]
   end
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
 
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   # get "up" => "rails/health#show", as: :rails_health_check

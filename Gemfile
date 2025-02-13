@@ -62,6 +62,10 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'letter_opener'
+  gem 'letter_opener_web'
+  gem 'config' # 設定管理
+  gem 'bcrypt' # パスワードのハッシュ化
 end
 
 group :test do
