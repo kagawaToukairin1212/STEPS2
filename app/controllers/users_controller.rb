@@ -7,10 +7,24 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(user_params)
-      if @user.save
-        redirect_to root_path
-      else
-        render :new
+    
+      respond_to do |format|
+        if @user.save
+          # ユーザーが保存されたことを確認
+          if @user.persisted?
+            begin
+              UserMailer.with(user: @user).welcome_email.deliver_now # テスト用に変更
+            rescue => e
+              Rails.logger.error "UserMailer failed: #{e.message}"
+            end
+          end
+    
+          format.html { redirect_to root_path, notice: "ユーザーが正常に作成されました" }
+          format.json { render :show, status: :created, location: @user }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
 
