@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require "letter_opener_web"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "static_pages#top"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -24,6 +25,12 @@ Rails.application.routes.draw do
     resources :question_responses, only: [ :create, :edit, :update, :destroy ]
   end
 
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
 
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   # get "up" => "rails/health#show", as: :rails_health_check
