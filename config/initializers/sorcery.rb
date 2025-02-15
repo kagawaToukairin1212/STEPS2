@@ -403,6 +403,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `nil`
     #
     # user.reset_password_mailer =
+    user.username_attribute_names = [:email] # メールアドレスでログイン
     user.reset_password_mailer = UserMailer
     user.reset_password_time_between_emails = 1 # 確認メールを送信できる間隔（デフォルト: 600秒）
   

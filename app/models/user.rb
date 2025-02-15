@@ -14,4 +14,7 @@ class User < ApplicationRecord
 
   # メールアドレス（必須、一意性）
   validates :email, presence: true, uniqueness: true
+  
+  #パスワード再設定
+  validates :reset_password_token, uniqueness: true, allow_nil: true
 end

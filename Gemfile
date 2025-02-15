@@ -45,6 +45,7 @@ gem "groupdate"
 gem "importmap-rails"
 gem "kaminari"
 gem "bootstrap5-kaminari-views"
+gem 'config'
 
 
 group :development, :test do
@@ -64,7 +65,6 @@ group :development do
   gem "web-console"
   gem 'letter_opener'
   gem 'letter_opener_web'
-  gem 'config' # 設定管理
   gem 'bcrypt' # パスワードのハッシュ化
 end
 

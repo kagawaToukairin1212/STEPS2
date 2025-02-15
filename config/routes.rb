@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :question_responses, only: [ :create, :edit, :update, :destroy ]
   end
 
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
