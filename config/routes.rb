@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  require "letter_opener_web"
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "static_pages#top"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [ :new, :create, :edit, :update ]
 
   if Rails.env.development?
+    require "letter_opener_web"
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
