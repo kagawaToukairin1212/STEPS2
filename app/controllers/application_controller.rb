@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   helper_method :current_user, :logged_in?
   before_action :require_login
+  add_flash_types :success, :danger
 
   private
 
