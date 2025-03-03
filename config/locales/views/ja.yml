@@ -1,0 +1,112 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: ユーザー登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+    mypage:
+      title: マイページ
+      radar_chart: レーダーグラフ
+      add_sheet: シートを追加する
+      change_goal: 目標の変更をする
+      enter_results: "結果を入力する: %{title}"
+      view_progress: "経過を確認する: %{title}"
+      download_graph: グラフをダウンロードする
+      delete_sheet: シートを削除する
+    profile:
+      title: 会員情報
+      name: ユーザー名
+      email: メールアドレス
+      password: パスワード
+      update_button: 会員情報を更新する
+  header:
+      before_login:
+        question_record: 質問記録
+        login: ログイン
+        register: ユーザー登録
+      after_login:
+        question_record: 質問記録
+        logout: ログアウト
+        profile: ユーザー情報
+  footer:
+    contact: お問い合わせ
+    review: レビュー依頼、質問、ご意見など
+    terms: 利用規約
+    privacy: プライバシーポリシー
+  static_pages:
+    top:
+      title: STEPS
+      coordination_title: コーディネーションとは
+      coordination_description: 簡単に言うと、自分の身体を思い通りに動かす能力のことです。
+      learn_more_button: 詳しくコーディネーションを知る
+      goal_and_questions_title: 目標を立てられる！疑問を解決できる！
+      set_goal_button: 目標を立てる
+      ask_question_button: 他のユーザーへ質問してみる
+
+  user_mailer:
+    reset_password_email:
+      greeting: "%{name}様"
+      description: パスワード再発行のご依頼を受け付けました。
+      instruction: こちらのリンクからパスワードの再発行を行ってください。
+
+  questions:
+    index:
+      title: 質問一覧
+      create_question: 質問を作成する
+      all_questions: 全ての質問
+      unresolved_questions: 未解決の質問
+      resolved_questions: 解決済みの質問
+      my_questions: 自分の質問
+      answered_questions: 回答した質問
+      subject: 件名
+      content: 内容
+      author: 投稿者
+    new:
+      title: 質問作成
+      submit: 質問を投稿する
+      subject: 件名
+      content: 質問内容
+    edit:
+      title: 質問の編集
+      submit: 更新する
+      subject: 件名
+      content: 内容
+    show:
+      title: 質問内容
+      author: 投稿者
+      respondent: 回答者
+      edit: 編集
+      delete: 削除
+      delete_confirm: 本当に削除しますか？
+      responses: 返答一覧
+      response_input: 返答を入力
+      mark_resolved: 解決済みにする
+      mark_unresolved: 未解決に戻す
+
+  question_responses:
+    form:
+      subject: 件名
+      content: 返答内容
+      submit: 返答する
+      edit: 編集
+      delete: 削除
+      delete_confirm: 本当に削除しますか？
+    edit:
+      title: 返答の編集
+      submit: 更新する
+      subject: 件名
+      content: 返答内容
+  
