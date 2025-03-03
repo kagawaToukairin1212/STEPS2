@@ -1,54 +1,54 @@
-<h1>質問内容</h1>
+<h1><%= t('questions.show.title') %></h1>
 <p><%= @question.subject %></p>
 <p><%= @question.content %></p>
-<p>投稿者: <%= @question.user.name %></p>
+<p><%= t('questions.show.author') %>: <%= @question.user.name %></p>
 
 <!-- 質問の編集・削除（投稿者のみ表示） -->
 <% if @question.user == current_user %>
   <%= link_to edit_question_path(@question), class: "btn btn-outline-secondary btn-sm" do %>
-    <i class="bi bi-pencil-fill"></i> 編集
+    <i class="bi bi-pencil-fill"></i> <%= t('questions.show.edit') %>
   <% end %>
 
   <%= button_to @question, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
-    <i class="bi bi-trash-fill"></i> 削除
+    <i class="bi bi-trash-fill"></i> <%= t('questions.show.delete') %>
   <% end %>
 <% end %>
 
-<h1>返答一覧</h1>
+<h1><%= t('questions.show.responses') %></h1>
 <% @question.question_responses.each do |response| %>
   <div class="border p-2 my-2">
     <p><strong><%= response.subject %></strong></p>
     <p><%= response.content %></p>
-    <p>回答者: <%= response.user.name %></p>
+    <p><%= t('questions.show.respondent') %>: <%= response.user.name %></p>
 
     <!-- 返答の編集・削除（投稿者のみ表示） -->
     <% if response.user == current_user %>
       <%= link_to edit_question_question_response_path(@question, response), class: "btn btn-outline-secondary btn-sm" do %>
-        <i class="bi bi-pencil-fill"></i> 編集
+        <i class="bi bi-pencil-fill"></i> <%= t('questions.show.edit') %>
       <% end %>
 
       <%= button_to question_question_response_path(@question, response), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
-        <i class="bi bi-trash-fill"></i> 削除
+        <i class="bi bi-trash-fill"></i> <%= t('questions.show.delete') %>
       <% end %>
     <% end %>
   </div>
 <% end %>
 
-<h2>返答を入力</h2>
+<h2><%= t('questions.show.response_input') %></h2>
 <%= form_with(model: [@question, QuestionResponse.new], local: true) do |form| %>
   <div>
-    <%= form.label :subject, "件名" %>
+    <%= form.label :subject, t('question_responses.form.subject') %>
     <%= form.text_field :subject, class: 'form-control' %>
   </div>
   <div>
-    <%= form.label :content, "返答内容" %>
+    <%= form.label :content, t('question_responses.form.content') %>
     <%= form.text_area :content, class: 'form-control' %>
   </div>
-  <%= form.submit "返答する", class: 'btn btn-primary' %>
+  <%= form.submit t('question_responses.form.submit'), class: 'btn btn-primary' %>
 <% end %>
 
 <% if @question.unresolved? %>
-  <%= button_to "解決済みにする", update_status_question_path(@question), method: :patch, class: "btn btn-success" %>
+  <%= button_to t('questions.show.mark_resolved'), update_status_question_path(@question), method: :patch, class: "btn btn-success" %>
 <% else %>
-  <%= button_to "未解決に戻す", update_status_question_path(@question), method: :patch, class: "btn btn-warning" %>
+  <%= button_to t('questions.show.mark_unresolved'), update_status_question_path(@question), method: :patch, class: "btn btn-warning" %>
 <% end %>

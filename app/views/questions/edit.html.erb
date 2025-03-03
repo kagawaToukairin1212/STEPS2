@@ -1,12 +1,12 @@
-<h1>質問の編集</h1>
+<h1><%= t('questions.edit.title') %></h1>
 <%= form_with(model: @question, local: true) do |form| %>
   <div>
-    <%= form.label :subject, "件名" %>
+    <%= form.label :subject, t('questions.edit.subject') %>
     <%= form.text_field :subject, class: 'form-control', value: @question.subject %>
   </div>
   <div>
-    <%= form.label :content, "内容" %>
+    <%= form.label :content, t('questions.edit.content') %>
     <%= form.text_area :content, class: 'form-control', rows: 5, value: @question.content %>
   </div>
-  <%= form.submit "更新する", class: 'btn btn-primary' %>
+  <%= form.submit t('questions.edit.submit'), class: 'btn btn-primary' %>
 <% end %>

@@ -1,16 +1,16 @@
-<h1>質問一覧</h1>
-<%= link_to '質問を作成する', new_question_path, class: 'btn btn-primary' %>
-<%= link_to '全ての質問', questions_path, class: 'btn btn-primary' %>
-<%= link_to '未解決の質問', questions_path(filter: 'unresolved'), class: 'btn btn-primary' %>
-<%= link_to '解決済みの質問', questions_path(filter: 'resolved'), class: 'btn btn-primary' %>
-<%= link_to '自分の質問', questions_path(filter: 'my_questions'), class: 'btn btn-primary' %>
-<%= link_to '回答した質問', questions_path(filter: 'answered'), class: 'btn btn-primary' %>
+<h1><%= t('questions.index.title') %></h1>
+<%= link_to t('questions.index.create_question'), new_question_path, class: 'btn btn-primary' %>
+<%= link_to t('questions.index.all_questions'), questions_path, class: 'btn btn-primary' %>
+<%= link_to t('questions.index.unresolved_questions'), questions_path(filter: 'unresolved'), class: 'btn btn-primary' %>
+<%= link_to t('questions.index.resolved_questions'), questions_path(filter: 'resolved'), class: 'btn btn-primary' %>
+<%= link_to t('questions.index.my_questions'), questions_path(filter: 'my_questions'), class: 'btn btn-primary' %>
+<%= link_to t('questions.index.answered_questions'), questions_path(filter: 'answered'), class: 'btn btn-primary' %>
 <table class="table">
   <thead>
     <tr>
-      <th>件名</th>
-      <th>内容</th>
-      <th>投稿者</th>
+      <th><%= t('questions.index.subject') %></th>
+      <th><%= t('questions.index.content') %></th>
+      <th><%= t('questions.index.author') %></th>
     </tr>
   </thead>
   <tbody>
