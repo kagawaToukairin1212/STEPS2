@@ -13,9 +13,9 @@ class SheetsController < ApplicationController
           value: item[:goal]
         )
       end
-      redirect_to mypage_path, success: t('sheet.new.success')
+      redirect_to mypage_path, success: t("sheet.new.success")
     else
-      flash.now[:danger] = t('sheet.new.failure')
+      flash.now[:danger] = t("sheet.new.failure")
       render :new
     end
   end
