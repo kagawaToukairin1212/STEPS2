@@ -13,12 +13,13 @@ class SheetsController < ApplicationController
           value: item[:goal]
         )
       end
-      redirect_to mypage_path, notice: "シートが作成されました"
+      redirect_to mypage_path, success: t('sheet.new.success')
     else
-      flash.now[:alert] = "シートの作成に失敗しました"
+      flash.now[:danger] = t('sheet.new.failure')
       render :new
     end
   end
+
 
   def show
     @sheet = Sheet.find(params[:id])

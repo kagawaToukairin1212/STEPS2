@@ -7,22 +7,22 @@ RSpec.describe 'UserSessions', type: :system do
     context 'フォームの入力値が正常' do
       it 'ログイン処理が成功する' do
         visit login_path
-        fill_in 'email', with: user.email
-        fill_in 'password', with: 'password'
+        fill_in 'メールアドレス', with: user.email
+        fill_in 'パスワード', with: 'password'
         click_button 'ログイン'
-        expect(page).to have_content 'user_sessions.create.success'
+        expect(page).to have_content I18n.t('user_sessions.create.success')
         expect(current_path).to eq mypage_path
       end
     end
 
-    
+
     context 'フォームが未入力' do
       it 'ログイン処理が失敗する' do
         visit login_path
-        fill_in 'email', with: ''
-        fill_in 'password', with: 'password'
+        fill_in 'メールアドレス', with: ''
+        fill_in 'パスワード', with: 'password'
         click_button 'ログイン'
-        expect(page).to have_content 'user_sessions.create.failure'
+        expect(page).to have_content I18n.t('user_sessions.create.failure')
         expect(current_path).to eq login_path
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe 'UserSessions', type: :system do
       it 'ログアウト処理が成功する' do
         login_as(user)
         click_link 'ログアウト'
-        expect(page).to have_content 'user_sessions.destroy.success'
+        expect(page).to have_content I18n.t('user_sessions.destroy.success')
         expect(current_path).to eq root_path
       end
     end
