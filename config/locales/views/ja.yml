@@ -1,4 +1,22 @@
 ja:
+  defaults:
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
+      require_login: ログインしてください
+      not_authorized: 権限がありません
+    post: 投稿
+    create: 作成
+    search_word: 検索ワード
+    edit: 編集
+    delete_confirm: 削除しますか？
+    password_reset: "パスワードリセット"
+    show: 詳細
+    delete: 削除
+    unspecified: 指定なし
   helpers:
     submit:
       create: 登録
@@ -13,10 +31,18 @@ ja:
       login: ログイン
       to_register_page: ユーザー登録ページへ
       password_forget: パスワードをお忘れの方はこちら
+    create:
+      success: ログインしました
+      failure: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
   users:
     new:
       title: ユーザー登録
       to_login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
     mypage:
       title: マイページ
       radar_chart: レーダーグラフ
@@ -32,6 +58,13 @@ ja:
       email: メールアドレス
       password: パスワード
       update_button: 会員情報を更新する
+  sheet:
+    new: 
+      title: シートタイトル
+      goal_placeholder: 目標を入力してください
+      submit: 保存する
+      success: シートが作成されました
+      failure: シートの作成に失敗しました
   header:
       before_login:
         question_record: 質問記録

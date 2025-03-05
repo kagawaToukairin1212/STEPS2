@@ -1,19 +1,25 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>">
+    <%= message %>
+  </div>
+<% end %>
+
 <%= form_with model: @sheet, url: sheets_path, local: true do |f| %>
   <div class="form-group">
-    <%= f.label :title, "シートタイトル" %>
+    <%= f.label :title, t('sheet.new.title') %>
     <%= f.text_field :title, class: "form-control", required: true %>
   </div>
 
   <div id="evaluation-items">
-    <% @evaluation_departments.each do |item| %>
+    <% @evaluation_departments.each_with_index do |item, index| %>
       <div class="form-group">
-        <label><%= item.name %></label>
+        <label for="evaluation_item_<%= index %>"><%= item.name %></label>
         <input type="hidden" name="evaluation_items[][evaluation_department_id]" value="<%= item.id %>">
-        <textarea name="evaluation_items[][goal]" class="form-control" placeholder="目標を入力してください" required></textarea>
+        <textarea id="evaluation_item_<%= index %>" name="evaluation_items[][goal]" class="form-control" placeholder=<%= t('sheet.new.goal_placeholder') %> required></textarea>
       </div>
     <% end %>
   </div>
 
-  <button type="submit" class="btn btn-primary">保存する</button>
+  <button type="submit" class="btn btn-primary"><%= t('sheet.new.submit') %></button>
 <% end %>
   

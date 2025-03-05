@@ -46,7 +46,7 @@ gem "importmap-rails"
 gem "kaminari"
 gem "bootstrap5-kaminari-views"
 gem "config"
-gem 'rails-i18n', '~> 7.0.0'
+gem "rails-i18n", "~> 7.0.0"
 
 
 group :development, :test do
