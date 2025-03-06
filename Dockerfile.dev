@@ -11,6 +11,7 @@ RUN apt-get update -qq \
 && echo "deb [signed-by=/usr/share/keyrings/yarn.gpg] https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
 && apt-get update -qq \
 && apt-get install -y nodejs yarn
+RUN yarn global add esbuild sass
 RUN mkdir /myapp
 WORKDIR /myapp
 RUN gem install bundler
