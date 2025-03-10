@@ -2,7 +2,12 @@
 import "@hotwired/turbo-rails";
 import "./controllers";
 import * as bootstrap from "bootstrap";
-import "chartkick/chart.js"; // Chart.jsの機能を使用
-import Chart from "chart.js/auto";
+
+
+// Chart.js を Importmap 経由で利用する
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables); // Chart.js の全機能を有効化
+
+
+// Stimulus コントローラーをロード
 import "./controllers/radar_chart_controller";
-import "./radar_chart";
