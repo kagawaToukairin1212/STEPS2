@@ -20,17 +20,6 @@ class UsersController < ApplicationController
       # シートに紐づく評価スコアを取得
       @sheets = current_user.sheets.includes(goals: :evaluation_scores)
 
-      # レーダーグラフ用データを生成
-      @radar_chart_data = @sheets.map do |sheet|
-        {
-          title: sheet.title,
-          date: sheet.created_at.strftime('%Y/%m/%d'), # or 最新スコア日付
-          labels: sheet.goals.map { |goal| goal.evaluation_department.name },
-          latestResults: sheet.goals.map { |goal| goal.evaluation_scores.last&.result || 0 },
-          previousResults: sheet.goals.map { |goal| goal.evaluation_scores.second_to_last&.result || 0 },
-          goals: sheet.goals.map { |goal| goal.value }
-        }
-      end
     end
 
     def profile

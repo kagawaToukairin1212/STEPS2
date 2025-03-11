@@ -6,3 +6,4 @@
 //= link controllers/index.js
 //= link controllers/radar_chart_controller.js
 //= link controllers/radar_graph_controller.js
+//= link controllers/bar_chart_controller.js

@@ -5,17 +5,15 @@
     <!-- 棒グラフ -->
     <div class="row">
         <div class="col-12">
-            <%= line_chart radar_chart_data_with_history(@sheet), max: 10, height: "400px" %>
+            <canvas id="barChart" data-controller="bar-chart"
+                data-bar-chart-scores="<%= @scores.to_json %>"
+                data-bar-chart-labels="<%= @labels.to_json %>"
+                data-bar-chart-colors="<%= @colors.to_json %>">
+            </canvas>
         </div>
     </div>
-
-
-    <div data-controller="hello">
-        <input data-hello-target="name" type="text">
-        <button data-action="click->hello#greet">Greet</button>
-        <p data-hello-target="output"></p>
-    </div>
-
+    
+    <!-- <%= debug @scores %> -->
 
     <!-- レーダーグラフと目標の表示 -->
     <div class="row mt-4">

@@ -12,3 +12,6 @@ application.register("radar-chart", RadarChartController)
 
 import RadarGraphController from "./radar_graph_controller"
 application.register("radar-graph", RadarGraphController)
+
+import BarChartController from "./bar_chart_controller";
+application.register("bar-chart", BarChartController);
