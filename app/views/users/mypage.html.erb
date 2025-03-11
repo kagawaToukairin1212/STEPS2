@@ -7,38 +7,24 @@
 <div class="container my-5">
   <h1 class="text-center mb-4"><%= t('users.mypage.title') %></h1>
 
-  <div class="row">
-    <!-- 左側: レーダーグラフのプレースホルダー -->
+  <!-- リンク一覧 -->
+  <div class="mt-5">
+    <div class="list-group">
+      <%= link_to t('users.mypage.add_sheet'), new_sheet_path, class: 'list-group-item list-group-item-action' %>
+      <%= link_to t('users.mypage.change_goal'), '#', class: 'list-group-item list-group-item-action' %>
 
-    <h2><%= t('users.mypage.radar_chart') %></h2>
-  <div data-controller="radar-chart" data-sheets="<%= @radar_chart_data.to_json %>">
-    <% @sheets.each_with_index do |sheet, index| %>
-      <h3><%= sheet.title %></h3>
-      <canvas id="radarChart-<%= index %>" width="400" height="400"></canvas>
-    <% end %>
-  </div>
+      <% @sheets.each do |sheet| %>
+        <%= link_to t('users.mypage.enter_results', title: sheet.title), sheet_evaluation_scores_path(sheet), class: 'list-group-item list-group-item-action' %>
+      <% end %>
 
+      <% @sheets.each do |sheet| %>
+        <%= link_to t('users.mypage.view_progress', title: sheet.title), sheet_path(sheet), class: 'list-group-item list-group-item-action' %>
+      <% end %>
 
-
-
-    <!-- 右側: リンク一覧 -->
-    <div class="col-md-6">
-      <div class="list-group">
-        <%= link_to t('users.mypage.add_sheet'), new_sheet_path, class: 'list-group-item list-group-item-action' %>
-        <%= link_to t('users.mypage.change_goal'), '#', class: 'list-group-item list-group-item-action' %>
-
-        
-        <% @sheets.each do |sheet| %>
-          <%= link_to t('users.mypage.enter_results', title: sheet.title), sheet_evaluation_scores_path(sheet), class: 'list-group-item list-group-item-action' %>
-        <% end %>
-
-
-        <% @sheets.each do |sheet| %>
-          <%= link_to t('users.mypage.view_progress', title: sheet.title), sheet_path(sheet), class: 'list-group-item list-group-item-action' %>
-        <% end %>
-        <%= link_to t('users.mypage.download_graph'), '#', class: 'list-group-item list-group-item-action' %>
-        <%= link_to t('users.mypage.delete_sheet'), '#', class: 'list-group-item list-group-item-action' %>
-      </div>
+      <%= link_to t('users.mypage.download_graph'), '#', class: 'list-group-item list-group-item-action' %>
+      <%= link_to t('users.mypage.delete_sheet'), '#', class: 'list-group-item list-group-item-action' %>
     </div>
   </div>
+
+  <!-- <%= debug @radar_chart_data %> -->
 </div>

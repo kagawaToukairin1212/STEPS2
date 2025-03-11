@@ -6,3 +6,12 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import RadarChartController from "./radar_chart_controller"
+application.register("radar-chart", RadarChartController)
+
+import RadarGraphController from "./radar_graph_controller"
+application.register("radar-graph", RadarGraphController)
+
+import BarChartController from "./bar_chart_controller";
+application.register("bar-chart", BarChartController);

@@ -1,5 +1,39 @@
-<div class="row">
-    <!-- 左側: レーダーグラフのプレースホルダー -->
+<div class="container">
+    <!-- シートタイトル -->
     <h2><%= @sheet.title %></h2>
-    <%= line_chart radar_chart_data_with_history(@sheet), max: 10, height: "400px" %>
+
+    <!-- 棒グラフ -->
+    <div class="row">
+        <div class="col-12">
+            <canvas id="barChart" data-controller="bar-chart"
+                data-bar-chart-scores="<%= @scores.to_json %>"
+                data-bar-chart-labels="<%= @labels.to_json %>"
+                data-bar-chart-colors="<%= @colors.to_json %>"
+                width="700" height="500"> <!-- 🟢 縦を長くする -->
+            </canvas>
+        </div>
+    </div>
+
+    <!-- <%= debug @scores %> -->
+
+    <!-- レーダーグラフと目標の表示 -->
+    <div class="row mt-4">
+        <!-- レーダーグラフ -->
+        <div class="col-md-6">
+            <canvas id="radarChart" data-controller="radar-graph"
+                data-radar-graph-scores="<%= @scores.to_json %>"
+                data-radar-graph-labels="<%= @labels.to_json %>"
+                data-radar-graph-colors="<%= @colors.to_json %>"
+                width="500" height="500"> <!-- 🟢 サイズを大きくする -->
+            </canvas>
+        </div>
+
+        <!-- 目標リスト -->
+        <div class="col-md-6">
+            <h3>目標</h3>
+            <% @sheet.goals.each do |goal| %>
+                <p><strong><%= goal.evaluation_department.name %>:</strong> <%= goal.value %></p>
+            <% end %>
+        </div>
+    </div>
 </div>
