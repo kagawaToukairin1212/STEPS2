@@ -1,59 +1,52 @@
 import { Controller } from "@hotwired/stimulus";
-import { Chart } from "chart.js/auto";
+import Chart from "chart.js/auto";
 
+// Stimulus コントローラーを作成
 export default class extends Controller {
-  connect() {
+    connect() {
+        console.log("🚀 Radar Graph Controller Loaded!");
+        // HTML 要素 (canvas) を取得
+        const ctx = this.element;
 
-    console.log("✅ Stimulus RadarChartController is connected!");
-    const ctx = this.element.getContext("2d");
-    
-    const scores = JSON.parse(this.element.dataset.radarGraphScores);
-    const labels = JSON.parse(this.element.dataset.radarGraphLabels);
+        // データを HTML の `data-*` 属性から取得
+        const scores = JSON.parse(this.data.get("scores"));  // スコアデータ
+        const labels = JSON.parse(this.data.get("labels"));  // 評価項目ラベル
+        const colors = JSON.parse(this.data.get("colors"));  // カラーパレット
 
-    if (!scores.length || !labels.length) {
-      console.warn("⚠️ グラフデータが空です。");
-      return;
+        // Chart.js を使ってレーダーグラフを描画
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: labels, // 評価項目をラベルとして設定
+                datasets: scores.map((score, index) => ({
+                    label: `${score.date} の分析`, // 日付ごとのデータセット名
+                    backgroundColor: colors[index % colors.length], // 背景色
+                    borderColor: colors[index % colors.length].replace("0.5", "1"), // 枠線の色
+                    pointBackgroundColor: colors[index % colors.length].replace("0.5", "1"), // 結合点の色
+                    pointBorderColor: "#fff", // 結合点の枠線
+                    pointHoverBackgroundColor: "#fff", // ホバー時の結合点の色
+                    pointHoverBorderColor: colors[index % colors.length].replace("0.5", "1"), // ホバー時の枠線
+                    data: score.values // 各項目の評価データ
+                }))
+            },
+            options: {
+                responsive: true, // レスポンシブ対応
+                maintainAspectRatio: false, // アスペクト比を固定しない
+                scales: {
+                    r: {
+                        suggestedMin: 0, // 最小値 0
+                        suggestedMax: 10, // 最大値 10
+                        ticks: {
+                            stepSize: 1 // 1 ずつ増減
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: "top" // 凡例を上部に表示
+                    }
+                }
+            }
+        });
     }
-
-    console.log("Radar Chart - Received Scores: ", scores);
-    console.log("Radar Chart - Received Labels: ", labels);
-
-    const colors = [
-      "rgba(255, 99, 132, 0.5)",  // 赤
-      "rgba(255, 159, 64, 0.5)",  // オレンジ
-      "rgba(255, 205, 86, 0.5)",  // 黄
-      "rgba(75, 192, 192, 0.5)",  // 緑
-      "rgba(54, 162, 235, 0.5)",  // 青
-      "rgba(153, 102, 255, 0.5)", // 紫
-      "rgba(201, 203, 207, 0.5)"  // グレー
-    ];
-
-    const datasets = scores.map((score, index) => ({
-      label: score.date,
-      data: score.values,
-      borderColor: colors[index % colors.length],
-      backgroundColor: colors[index % colors.length] + "40",
-      borderWidth: 2
-    }));
-
-    new Chart(ctx, {
-      type: "radar",
-      data: {
-        labels: labels,
-        datasets: datasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            beginAtZero: true,
-            min: 0,
-            max: 10,
-            ticks: { stepSize: 1 }
-          }
-        }
-      }
-    });
-  }
 }

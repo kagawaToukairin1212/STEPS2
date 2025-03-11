@@ -1,6 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails";
-import "./controllers";
+import "./controllers";  // ✅ これだけで Stimulus のすべてのコントローラーが自動読み込みされる
 import * as bootstrap from "bootstrap";
 
 
@@ -9,5 +9,3 @@ import { Chart, registerables } from "chart.js";
 Chart.register(...registerables); // Chart.js の全機能を有効化
 
 
-// Stimulus コントローラーをロード
-import "./controllers/radar_chart_controller";
