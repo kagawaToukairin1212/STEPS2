@@ -8,11 +8,12 @@
             <canvas id="barChart" data-controller="bar-chart"
                 data-bar-chart-scores="<%= @scores.to_json %>"
                 data-bar-chart-labels="<%= @labels.to_json %>"
-                data-bar-chart-colors="<%= @colors.to_json %>">
+                data-bar-chart-colors="<%= @colors.to_json %>"
+                width="700" height="500"> <!-- 🟢 縦を長くする -->
             </canvas>
         </div>
     </div>
-    
+
     <!-- <%= debug @scores %> -->
 
     <!-- レーダーグラフと目標の表示 -->
@@ -22,7 +23,8 @@
             <canvas id="radarChart" data-controller="radar-graph"
                 data-radar-graph-scores="<%= @scores.to_json %>"
                 data-radar-graph-labels="<%= @labels.to_json %>"
-                data-radar-graph-colors="<%= @colors.to_json %>">
+                data-radar-graph-colors="<%= @colors.to_json %>"
+                width="500" height="500"> <!-- 🟢 サイズを大きくする -->
             </canvas>
         </div>
 
