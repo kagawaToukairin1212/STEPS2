@@ -27,7 +27,7 @@ class SheetsController < ApplicationController
     # 評価項目のラベル
     @labels = EvaluationDepartment.pluck(:name)
 
-  # シートに紐づく評価結果を日付ごとに取得
+    # シートに紐づく評価結果を日付ごとに取得
     @scores_by_date = @sheet.goals.flat_map(&:evaluation_scores)
                              .group_by { |s| s.created_at.strftime("%Y/%m/%d %H:%M:%S") }
 
@@ -56,4 +56,3 @@ class SheetsController < ApplicationController
     params.require(:sheet).permit(:title)
   end
 end
-
