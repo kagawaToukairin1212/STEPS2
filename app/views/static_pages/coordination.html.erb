@@ -1,0 +1,45 @@
+<h1><%= t('coordination.title') %></h1>
+<p><%= t('coordination.intro') %></p>
+
+<h2>🌟 <%= t('coordination.history_title') %></h2>
+<p><%= t('coordination.history_description') %></p>
+
+<h2>🎯 <%= t('coordination.benefits_title') %></h2>
+<ul>
+  <li>✅ <%= t('coordination.benefits.sports_skill') %></li>
+  <li>✅ <%= t('coordination.benefits.enjoyment') %></li>
+  <li>✅ <%= t('coordination.benefits.injury_prevention') %></li>
+  <li>✅ <%= t('coordination.benefits.daily_life') %></li>
+</ul>
+
+<h2>📌 <%= t('coordination.abilities_title') %></h2>
+<% t('coordination.abilities').each do |ability| %>
+  <h3><%= ability[:name] %></h3>
+  <p>➡ <%= ability[:description] %></p>
+  <p>💡 <%= ability[:example] %></p>
+<% end %>
+
+<h2>📌 <%= t('coordination.goal_setting_title') %></h2>
+<p><%= t('coordination.goal_setting_intro') %></p>
+
+<% t('coordination.sports').each do |sport| %>
+  <h3><%= sport[:name] %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('coordination.goal_setting.ability') %></th>
+        <th><%= t('coordination.goal_setting.example') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% sport[:goals].each do |goal| %>
+        <tr>
+          <td><%= goal[:ability] %></td>
+          <td><%= goal[:example] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+
