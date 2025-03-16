@@ -47,6 +47,7 @@ gem "kaminari"
 gem "bootstrap5-kaminari-views"
 gem "config"
 gem "rails-i18n", "~> 7.0.0"
+gem "meta-tags"
 
 
 group :development, :test do
