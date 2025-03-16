@@ -196,8 +196,6 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    meta-tags (2.22.1)
-      actionpack (>= 6.0.0, < 8.1)
     method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
@@ -447,7 +445,6 @@ DEPENDENCIES
   kaminari
   letter_opener
   letter_opener_web
-  meta-tags
   pg (~> 1.1)
   pry-byebug
   puma (>= 5.0)

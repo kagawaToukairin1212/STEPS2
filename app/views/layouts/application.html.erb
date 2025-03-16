@@ -8,12 +8,9 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload", preload: false %>
     <%= javascript_importmap_tags %>
-    
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
-    <%= display_meta_tags(default_meta_tags) %>
-    </head>
+  </head>
 
   <body>
     <% if logged_in? %>
