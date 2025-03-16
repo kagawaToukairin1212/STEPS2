@@ -12,7 +12,7 @@ module ApplicationHelper
           description: "STEPSは、子供の運動機能を記録し、成長を可視化できるWebアプリです。",
           type: "website",
           url: "rigid-ashli-kagawatoukairin1212-a6937945.koyeb.app",
-          image: image_url('STEPS_logo.png'),
+          image: image_url('ogp.png'),
           site_name: "STEPS"
         },
         twitter: {
@@ -20,7 +20,7 @@ module ApplicationHelper
           site: "@your_twitter_account",
           title: "STEPS - 子供の運動機能を記録・評価！",
           description: "STEPSは、子供の運動機能を記録し、成長を可視化できるWebアプリです。",
-          image: image_url('STEPS_logo.png')
+          image: image_url('ogp.png')
         }
       }
     end
