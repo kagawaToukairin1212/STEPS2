@@ -25,6 +25,9 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+      user:
+        password: "新しいパスワード"
+        password_confirmation: "新しいパスワード（確認用）"
   user_sessions:
     new:
       title: ログイン
@@ -58,6 +61,17 @@ ja:
       email: メールアドレス
       password: パスワード
       update_button: 会員情報を更新する
+  password_resets:
+    new:
+      title: "パスワードリセット"
+      submit: "送信"
+    create:
+      success: "パスワードリセットの案内をメールで送信しました"
+    update:
+      success: "パスワードが変更されました"
+      fail: "パスワードの変更に失敗しました。もう一度お試しください。"
+    edit:
+      title: "パスワードの再設定"
   sheet:
     new: 
       title: シートタイトル
