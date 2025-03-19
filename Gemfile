@@ -48,7 +48,9 @@ gem "bootstrap5-kaminari-views"
 gem "config"
 gem "rails-i18n", "~> 7.0.0"
 gem "meta-tags"
-
+# Mailer (本番環境向け)
+gem "mail"  # SMTP送信をサポート
+gem "bcrypt" # パスワードのハッシュ化
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -69,7 +71,7 @@ group :development do
   gem "web-console"
   gem "letter_opener"
   gem "letter_opener_web"
-  gem "bcrypt" # パスワードのハッシュ化
+  
 end
 
 group :test do
