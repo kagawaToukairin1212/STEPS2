@@ -80,18 +80,18 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # 本番環境のURLを設定
-  config.action_mailer.default_url_options = { host: "steps-assessment.com", protocol: "https" }
+  config.action_mailer.default_url_options = { host: "steps-assessment.com/", protocol: "https" }
 
   # SMTP 設定
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.dig(:mail, :address),
-    port: Rails.application.credentials.dig(:mail, :port),
-    domain: Rails.application.credentials.dig(:mail, :domain),
-    authentication: Rails.application.credentials.dig(:mail, :authentication),
-    enable_starttls_auto: Rails.application.credentials.dig(:mail, :enable_starttls_auto),
-    user_name: Rails.application.credentials.dig(:mail, :user_name),
-    password: Rails.application.credentials.dig(:mail, :password)
+    address: ENV["SMTP_ADDRESS"],
+    port: ENV["SMTP_PORT"],
+    domain: "gmail.com",
+    authentication: ENV["SMTP_AUTH_METHOD"],
+    enable_starttls_auto: ENV["SMTP_ENABLE_STARTTLS_AUTO"],
+    user_name: ENV["SMTP_USER_NAME"],
+    password: ENV["SMTP_PASSWORD"]
   }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
