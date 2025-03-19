@@ -80,16 +80,16 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # 本番環境のURLを設定
-  config.action_mailer.default_url_options = { host: "steps-assessment.com/", protocol: "https" }
+  config.action_mailer.default_url_options = { host: "steps-assessment.com", protocol: "https" }
 
   # SMTP 設定
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: ENV["SMTP_ADDRESS"],
-    port: ENV["SMTP_PORT"],
+    port: ENV["SMTP_PORT"].to_i,
     domain: "gmail.com",
     authentication: ENV["SMTP_AUTH_METHOD"],
-    enable_starttls_auto: ENV["SMTP_ENABLE_STARTTLS_AUTO"],
+    enable_starttls_auto: ActiveModel::Type::Boolean.new.cast(ENV["SMTP_ENABLE_STARTTLS_AUTO"]),
     user_name: ENV["SMTP_USER_NAME"],
     password: ENV["SMTP_PASSWORD"]
   }
