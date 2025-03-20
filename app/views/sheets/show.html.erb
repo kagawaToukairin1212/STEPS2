@@ -37,5 +37,32 @@
         </div>
     </div>
 
+    <div class="container mt-5">
+        <h3>評価結果</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th>目標</th>
+                <% @scores_by_date.keys.each do |date| %>
+                <th><%= date %></th>
+                <% end %>
+            </tr>
+            </thead>
+            <tbody>
+            <% @evaluation_results.each do |result| %>
+                <tr>
+                <td><%= result[:name] %></td>
+                <% @scores_by_date.keys.each do |date| %>
+                    <td><%= result[date] %></td>
+                <% end %>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  
+
     <%= link_to "目標を変更する", edit_goals_sheet_path(@sheet), class: "btn btn-warning mt-3" %>
 </div>
