@@ -79,7 +79,7 @@ class SheetsController < ApplicationController
   private
 
   def sheet_params
-    params.require(:sheet).permit(:title, goals_attributes: [:id, :value])
+    params.require(:sheet).permit(:title, goals_attributes: [ :id, :value ])
   end
 
   def set_sheet
@@ -87,6 +87,6 @@ class SheetsController < ApplicationController
   end
 
   def sheet_goal_params
-    params.require(:sheet).permit(goals_attributes: [:id, :value])
+    params.require(:sheet).permit(goals_attributes: [ :id, :value ])
   end
 end

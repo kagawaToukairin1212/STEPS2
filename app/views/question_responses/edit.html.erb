@@ -1,12 +1,17 @@
-<h1><%= t('question_responses.edit.title') %></h1>
-<%= form_with(model: [@response.question, @response], local: true) do |form| %>
-  <div>
-    <%= form.label :subject, t('question_responses.edit.subject') %>
-    <%= form.text_field :subject, class: 'form-control' %>
+<div class="container my-5">
+  <h1 class="fw-bold text-center mb-4"><%= t('question_responses.edit.title') %></h1>
+
+  <div class="card p-4 shadow-sm">
+    <%= form_with(model: [@response.question, @response], local: true) do |form| %>
+      <div class="mb-3">
+        <%= form.label :subject, t('question_responses.edit.subject'), class: 'form-label fw-bold' %>
+        <%= form.text_field :subject, class: 'form-control', value: @response.subject %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :content, t('question_responses.edit.content'), class: 'form-label fw-bold' %>
+        <%= form.text_area :content, class: 'form-control', rows: 5 %>
+      </div>
+      <%= form.submit t('question_responses.edit.submit'), class: 'btn btn-warning w-100' %>
+    <% end %>
   </div>
-  <div>
-    <%= form.label :content, t('question_responses.edit.content') %>
-    <%= form.text_area :content, class: 'form-control' %>
-  </div>
-  <%= form.submit t('question_responses.edit.submit'), class: 'btn btn-primary' %>
-<% end %>
+</div>

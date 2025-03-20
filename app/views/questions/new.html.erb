@@ -1,12 +1,17 @@
-<h1><%= t('questions.new.title') %></h1>
-<%= form_with(model: @question, local: true) do |form| %>
-  <div>
-    <%= form.label :subject, t('questions.new.subject') %>
-    <%= form.text_field :subject, class: 'form-control' %>
+<div class="container my-5">
+  <h1 class="fw-bold text-center mb-4"><%= t('questions.new.title') %></h1>
+
+  <div class="card p-4 shadow-sm">
+    <%= form_with(model: @question, local: true) do |form| %>
+      <div class="mb-3">
+        <%= form.label :subject, t('questions.new.subject'), class: 'form-label fw-bold' %>
+        <%= form.text_field :subject, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :content, t('questions.new.content'), class: 'form-label fw-bold' %>
+        <%= form.text_area :content, class: 'form-control', rows: 5 %>
+      </div>
+      <%= form.submit t('questions.new.submit'), class: 'btn btn-primary w-100' %>
+    <% end %>
   </div>
-  <div>
-    <%= form.label :content, t('questions.new.content') %>
-    <%= form.text_area :content, class: 'form-control' %>
-  </div>
-  <%= form.submit t('questions.new.submit'), class: 'btn btn-primary' %>
-<% end %>
+</div>

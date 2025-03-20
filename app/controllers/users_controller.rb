@@ -51,13 +51,13 @@ class UsersController < ApplicationController
 
     def user_update_params
       permitted_params = params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    
+
       # パスワードが空の場合は更新しないように除外
       if permitted_params[:password].blank?
         permitted_params.delete(:password)
         permitted_params.delete(:password_confirmation)
       end
-    
+
       permitted_params
     end
 end

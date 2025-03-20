@@ -1,54 +1,69 @@
-<h1><%= t('questions.show.title') %></h1>
-<p><%= @question.subject %></p>
-<p><%= @question.content %></p>
-<p><%= t('questions.show.author') %>: <%= @question.user.name %></p>
+<div class="container my-5">
+  <!-- 質問の詳細 -->
+  <div class="card p-4 shadow-sm">
+    <h1 class="fw-bold text-center mb-3"><%= @question.subject %></h1>
+    <p class="text-muted text-center"><%= t('questions.show.author') %>: <%= @question.user.name %></p>
+    <p class="border rounded p-3 bg-light"><%= @question.content %></p>
 
-<!-- 質問の編集・削除（投稿者のみ表示） -->
-<% if @question.user == current_user %>
-  <%= link_to edit_question_path(@question), class: "btn btn-outline-secondary btn-sm" do %>
-    <i class="bi bi-pencil-fill"></i> <%= t('questions.show.edit') %>
-  <% end %>
-
-  <%= button_to @question, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
-    <i class="bi bi-trash-fill"></i> <%= t('questions.show.delete') %>
-  <% end %>
-<% end %>
-
-<h1><%= t('questions.show.responses') %></h1>
-<% @question.question_responses.each do |response| %>
-  <div class="border p-2 my-2">
-    <p><strong><%= response.subject %></strong></p>
-    <p><%= response.content %></p>
-    <p><%= t('questions.show.respondent') %>: <%= response.user.name %></p>
-
-    <!-- 返答の編集・削除（投稿者のみ表示） -->
-    <% if response.user == current_user %>
-      <%= link_to edit_question_question_response_path(@question, response), class: "btn btn-outline-secondary btn-sm" do %>
-        <i class="bi bi-pencil-fill"></i> <%= t('questions.show.edit') %>
-      <% end %>
-
-      <%= button_to question_question_response_path(@question, response), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
-        <i class="bi bi-trash-fill"></i> <%= t('questions.show.delete') %>
-      <% end %>
+    <!-- 質問の編集・削除（投稿者のみ表示） -->
+    <% if @question.user == current_user %>
+      <div class="text-end">
+        <%= link_to edit_question_path(@question), class: "btn btn-outline-secondary btn-sm" do %>
+          <i class="bi bi-pencil-fill"></i> <%= t('questions.show.edit') %>
+        <% end %>
+        <%= button_to @question, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
+          <i class="bi bi-trash-fill"></i> <%= t('questions.show.delete') %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-<% end %>
 
-<h2><%= t('questions.show.response_input') %></h2>
-<%= form_with(model: [@question, QuestionResponse.new], local: true) do |form| %>
-  <div>
-    <%= form.label :subject, t('question_responses.form.subject') %>
-    <%= form.text_field :subject, class: 'form-control' %>
-  </div>
-  <div>
-    <%= form.label :content, t('question_responses.form.content') %>
-    <%= form.text_area :content, class: 'form-control' %>
-  </div>
-  <%= form.submit t('question_responses.form.submit'), class: 'btn btn-primary' %>
-<% end %>
+  <!-- 返答一覧 -->
+  <h2 class="mt-5 fw-bold"><%= t('questions.show.responses') %></h2>
+  <% @question.question_responses.each do |response| %>
+    <div class="card p-3 mt-3 shadow-sm">
+      <div class="d-flex justify-content-between">
+        <h5 class="fw-bold"><%= response.subject %></h5>
+        <small class="text-muted"><%= response.user.name %></small>
+      </div>
+      <p class="mt-2"><%= response.content %></p>
 
-<% if @question.unresolved? %>
-  <%= button_to t('questions.show.mark_resolved'), update_status_question_path(@question), method: :patch, class: "btn btn-success" %>
-<% else %>
-  <%= button_to t('questions.show.mark_unresolved'), update_status_question_path(@question), method: :patch, class: "btn btn-warning" %>
-<% end %>
+      <!-- 返答の編集・削除（投稿者のみ表示） -->
+      <% if response.user == current_user %>
+        <div class="text-end">
+          <%= link_to edit_question_question_response_path(@question, response), class: "btn btn-outline-secondary btn-sm" do %>
+            <i class="bi bi-pencil-fill"></i> <%= t('questions.show.edit') %>
+          <% end %>
+          <%= button_to question_question_response_path(@question, response), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" do %>
+            <i class="bi bi-trash-fill"></i> <%= t('questions.show.delete') %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!-- 返答入力フォーム -->
+  <h2 class="mt-5 fw-bold"><%= t('questions.show.response_input') %></h2>
+  <div class="card p-4 shadow-sm">
+    <%= form_with(model: [@question, QuestionResponse.new], local: true) do |form| %>
+      <div class="mb-3">
+        <%= form.label :subject, t('question_responses.form.subject') %>
+        <%= form.text_field :subject, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :content, t('question_responses.form.content') %>
+        <%= form.text_area :content, class: 'form-control', rows: 3 %>
+      </div>
+      <%= form.submit t('question_responses.form.submit'), class: 'btn btn-primary w-100' %>
+    <% end %>
+  </div>
+
+  <!-- 解決ボタン -->
+  <div class="text-center mt-4">
+    <% if @question.unresolved? %>
+      <%= button_to t('questions.show.mark_resolved'), update_status_question_path(@question), method: :patch, class: "btn btn-success px-4 py-2" %>
+    <% else %>
+      <%= button_to t('questions.show.mark_unresolved'), update_status_question_path(@question), method: :patch, class: "btn btn-warning px-4 py-2" %>
+    <% end %>
+  </div>
+</div>
