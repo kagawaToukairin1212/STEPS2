@@ -1,4 +1,6 @@
 class SheetsController < ApplicationController
+  before_action :set_sheet, only: %i[show edit_goals update_goals]
+
   def new
     @sheet = Sheet.new
     @evaluation_departments = EvaluationDepartment.where(default: true) # 初期項目のみ取得
@@ -50,9 +52,30 @@ class SheetsController < ApplicationController
     ]
   end
 
+  def edit_goals
+    @goals = @sheet.goals  # 既存の目標を取得
+  end
+
+  def update_goals
+    if @sheet.update(sheet_params)
+      redirect_to @sheet, success: "目標を更新しました。"
+    else
+      flash.now[:danger] = "目標の更新に失敗しました。"
+      render :edit_goals, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def sheet_params
-    params.require(:sheet).permit(:title)
+    params.require(:sheet).permit(:title, goals_attributes: [:id, :value])
+  end
+
+  def set_sheet
+    @sheet = Sheet.find_by(id: params[:id])
+  end
+
+  def sheet_goal_params
+    params.require(:sheet).permit(goals_attributes: [:id, :value])
   end
 end

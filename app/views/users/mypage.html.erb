@@ -11,7 +11,7 @@
   <div class="mt-5">
     <div class="list-group">
       <%= link_to t('users.mypage.add_sheet'), new_sheet_path, class: 'list-group-item list-group-item-action' %>
-      <%= link_to t('users.mypage.change_goal'), '#', class: 'list-group-item list-group-item-action' %>
+
 
       <% @sheets.each do |sheet| %>
         <%= link_to t('users.mypage.enter_results', title: sheet.title), sheet_evaluation_scores_path(sheet), class: 'list-group-item list-group-item-action' %>

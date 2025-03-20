@@ -13,7 +13,7 @@ RSpec.describe 'ユーザー登録', type: :system do
         fill_in 'お名前', with: 'らんてっく たろう'
         fill_in 'メールアドレス', with: 'example@example.com'
         fill_in 'パスワード', with: '12345678'
-        fill_in 'パスワード確認', with: '12345678'
+        fill_in 'パスワード（確認用）', with: '12345678'
         click_button '登録'
         Capybara.assert_current_path("/", ignore_query: true)
       }.to change { User.count }.by(1)

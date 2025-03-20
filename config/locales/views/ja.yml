@@ -26,8 +26,8 @@ ja:
       email: メールアドレス
       password: パスワード
       user:
-        password: "新しいパスワード"
-        password_confirmation: "新しいパスワード（確認用）"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認用）"
   user_sessions:
     new:
       title: ログイン
