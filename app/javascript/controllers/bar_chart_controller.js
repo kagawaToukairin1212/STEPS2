@@ -20,7 +20,7 @@ export default class extends Controller {
       data: {
         labels: labels,
         datasets: scores.map((score, index) => ({
-          label: `${score.date} の分析`,
+          label: `${score.date} の結果`,
           data: score.values,
           borderColor: colors[index % colors.length],
           backgroundColor: colors[index % colors.length].replace("0.5", "0.2"), // 透明度を変更

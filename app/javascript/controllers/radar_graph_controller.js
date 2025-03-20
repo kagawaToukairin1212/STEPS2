@@ -19,7 +19,7 @@ export default class extends Controller {
             data: {
                 labels: labels, // 評価項目をラベルとして設定
                 datasets: scores.map((score, index) => ({
-                    label: `${score.date} の分析`, // 日付ごとのデータセット名
+                    label: `${score.date} の結果`, // 日付ごとのデータセット名
                     backgroundColor: colors[index % colors.length], // 背景色
                     borderColor: colors[index % colors.length].replace("0.5", "1"), // 枠線の色
                     pointBackgroundColor: colors[index % colors.length].replace("0.5", "1"), // 結合点の色

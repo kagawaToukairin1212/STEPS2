@@ -50,6 +50,17 @@ class SheetsController < ApplicationController
       "rgba(104, 132, 245, 0.5)",  # 藍
       "rgba(153, 102, 255, 0.5)"   # 紫
     ]
+
+    # 評価結果を表形式で取得する
+    @evaluation_results = []
+    @sheet.goals.each do |goal|
+      row = { name: goal.evaluation_department.name } # 目標の名前（例: "リズム能力"）
+      @scores_by_date.each do |date, scores|
+        score = scores.find { |s| s.goal_id == goal.id }
+        row[date] = score ? score.result : "-" # 結果がない場合は "-"
+      end
+      @evaluation_results << row
+    end
   end
 
   def edit_goals
