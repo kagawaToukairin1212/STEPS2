@@ -1,0 +1,23 @@
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>">
+      <%= message %>
+    </div>
+<% end %>
+  
+<div class="container my-5">
+    <h1 class="text-center mb-4">目標を変更</h1>
+  
+    <%= form_with model: @sheet, url: update_goals_sheet_path(@sheet), method: :patch, local: true do |f| %>
+      <%= f.fields_for :goals do |goal_form| %>
+        <div class="mb-3">
+          <%= goal_form.label :value, goal_form.object.evaluation_department.name, class: "form-label" %>
+          <%= goal_form.hidden_field :id %>  <!-- IDをhidden_fieldで渡す -->
+          <%= goal_form.text_field :value, class: "form-control" %>  <!-- 目標の値を入力 -->
+        </div>
+      <% end %>
+  
+      <%= f.submit "目標を更新する", class: "btn btn-success" %>
+    <% end %>
+
+
+</div>

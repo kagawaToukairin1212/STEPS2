@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   resources :sheets, only: [ :new, :create, :index, :show ] do
     resources :evaluation_scores, only: [ :new, :create, :index ]
+
+    member do
+      get "edit_goals"  # 目標編集ページ
+      patch "update_goals"  # 目標更新処理
+    end
   end
   resources :questions, only: [ :index, :new, :create, :show, :edit, :update, :destroy ] do
     member do
