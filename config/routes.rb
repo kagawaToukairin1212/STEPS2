@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   get "privacy", to: "static_pages#privacy", as: :privacy
   get "coordination", to: "static_pages#coordination", as: :coordination
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create edit update]
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
   get "mypage", to: "users#mypage", as: :mypage
   get "profile", to: "users#profile", as: :profile
+  get "profile/edit", to: "users#edit", as: :edit_profile
+  patch "profile", to: "users#update"
+
   resources :sheets, only: [ :new, :create, :index, :show ] do
     resources :evaluation_scores, only: [ :new, :create, :index ]
   end
