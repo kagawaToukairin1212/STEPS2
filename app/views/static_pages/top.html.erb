@@ -4,16 +4,56 @@
   </div>
 <% end %>
 
-<div class="top-wrapper">
-  <div class="top-inner-text">
-    <h1><%= t('static_pages.top.title') %></h1>
-    <h2><%= t('static_pages.top.coordination_title') %></h2>
-    <p><%= t('static_pages.top.coordination_description') %></p>
-    <button><%= t('static_pages.top.learn_more_button') %></button>
-    <section>
-      <h3><%= t('static_pages.top.goal_and_questions_title') %></h3>
-      <button><%= t('static_pages.top.set_goal_button') %></button>
-      <button><%= t('static_pages.top.ask_question_button') %></button>
-    </section>
+<div class="container text-center py-5">
+  <!-- タイトル & サブタイトル -->
+  <div class="mb-4">
+    <h1 class="fw-bold"><%= t('static_pages.top.title') %></h1>
+    <p class="fs-5 text-secondary">運動能力を向上させる目標を立てて、成長を記録しよう！</p>
+  </div>
+
+  <!-- コーディネーションとは -->
+  <div class="bg-light p-4 rounded">
+    <h2 class="fw-bold"><%= t('static_pages.top.coordination_title') %></h2>
+    <p class="fs-6"><%= t('static_pages.top.coordination_description') %></p>
+    <%= link_to t('static_pages.top.learn_more_button'), coordination_path, class: "btn btn-info btn-lg text-white" %>
+  </div>
+
+  <!-- STEPSの特徴 -->
+  <div class="mt-5">
+    <h3 class="fw-bold">STEPSでできること</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-check-circle fs-2 text-primary"></i>
+            <h5 class="card-title mt-2">目標を立てて成長を記録</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-bar-chart fs-2 text-success"></i>
+            <h5 class="card-title mt-2">グラフで成長を見える化</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-chat-dots fs-2 text-warning"></i>
+            <h5 class="card-title mt-2">他のユーザーと質問・相談</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTAボタン -->
+  <div class="mt-5">
+    <h3 class="fw-bold">さあ、始めよう！</h3>
+    <div class="d-grid gap-2 d-md-flex justify-content-center mt-3">
+      <%= link_to 'ログインしてアプリを使ってみる！', login_path, class: "btn btn-primary btn-lg px-4" %>
+    </div>
   </div>
 </div>
