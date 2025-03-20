@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "terms", to: "static_pages#terms", as: :terms
   get "privacy", to: "static_pages#privacy", as: :privacy
   get "coordination", to: "static_pages#coordination", as: :coordination
+  get "faq", to: "static_pages#faq", as: :faq
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   resources :users, only: %i[new create edit update]
   get "login", to: "user_sessions#new"

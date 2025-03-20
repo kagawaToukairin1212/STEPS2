@@ -1,0 +1,27 @@
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>">
+      <%= message %>
+    </div>
+  <% end %>
+  
+  <div class="container my-5">
+      <h1 class="text-center mb-4">よくある質問</h1>
+      
+      <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      目標を立てようとしているのですが、リズム能力や変換能力、連結能力に対する目標を明確に分けることが難しいです。どうやって目標を立てればいいでしょうか？
+                  </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                      多くの動作は一つの要素のみで成り立っていることは少なく、リズム能力や変換能力などの要素が複合した動きになっています。ですので正確に分けようとしなくても大丈夫です！より詳しく知りたいことがあれば他ユーザーへ質問したり、運営へレビュー依頼をしてください！
+                      <br><br>
+                      （※運営へのレビュー依頼、質問、ご意見に対する返信にはお時間を頂くことがあります。また、質問によってはお答えできないこともありますのでご了承ください。）
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
