@@ -1,28 +1,30 @@
 <header>
-  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <%= link_to mypage_path, class: 'navbar-brand' do %>
-      <%= image_tag 'STEPS_logo_2.png' %>
-    <% end %>
-    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
-      aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class='navbar-toggler-icon'></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto main-nav align-items-center">
-        <li class="nav-item">
-          <%= link_to t('header.after_login.coordination_description'), coordination_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('header.after_login.question_record'), questions_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('header.after_login.logout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('header.after_login.profile'), profile_path, class: "nav-link" %>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-3">
+    <div class="container-fluid">
+      <%= link_to mypage_path, class: "navbar-brand d-flex align-items-center" do %>
+        <%= image_tag "STEPS_logo_2.png", alt: "STEPS", height: "50" %>
+      <% end %>
+
+      <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <%= link_to t('header.after_login.coordination_description'), coordination_path, class: "nav-link fw-bold text-dark px-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('header.after_login.question_record'), questions_path, class: "nav-link fw-bold text-dark px-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('header.after_login.profile'), profile_path, class: "nav-link fw-bold text-dark px-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('header.after_login.logout'), logout_path, class: "btn btn-danger fw-bold mx-2", data: { turbo_method: :delete } %>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
