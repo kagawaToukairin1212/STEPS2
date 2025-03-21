@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="fw-bold text-center">評価結果を編集</h2>
+
+  <%= form_with model: @evaluation_score, url: sheet_evaluation_score_path(@evaluation_score.goal.sheet, @evaluation_score), method: :patch, local: true, class: "mt-4" do |form| %>
+
+    <div class="mb-3">
+      <%= form.label :result, "評価結果 (0-10)" %>
+      <%= form.number_field :result, in: 0..10, class: "form-control", required: true %>
+    </div>
+
+    <%= form.submit "更新する", class: "btn btn-primary" %>
+    <%= link_to "戻る", sheet_path(@sheet), class: "btn btn-secondary ms-2" %>
+  <% end %>
+</div>

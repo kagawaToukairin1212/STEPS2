@@ -1,5 +1,5 @@
 class EvaluationScoresController < ApplicationController
-  before_action :set_sheet, only: [ :new, :create, :index ]
+  before_action :set_sheet, only: [:new, :create, :index, :edit_by_date, :update_by_date]
 
   def new
     @goals = @sheet.goals
@@ -19,16 +19,54 @@ class EvaluationScoresController < ApplicationController
     render :new
   end
 
-
   def index
     @sheet = Sheet.find(params[:sheet_id])
     @goals = @sheet.goals
     @evaluation_scores = EvaluationScore.where(goal: @goals) # @goalsに関連するスコアを取得
   end
 
+  def edit_by_date
+    # デバッグ出力
+    puts "DEBUG: sheet_id = #{params[:sheet_id]}"
+    @sheet = Sheet.find_by(id: params[:sheet_id])
+    unless @sheet
+      redirect_to sheets_path, alert: "シートが見つかりません。" and return
+    end
+
+    date = params[:date]
+    begin
+      @date_formatted = DateTime.parse(date).strftime("%Y/%m/%d %H:%M")
+    rescue ArgumentError
+      redirect_to sheet_path(@sheet), alert: "無効な日付フォーマットです。" and return
+    end
+
+    @evaluation_scores = @sheet.goals.includes(:evaluation_scores)
+                              .flat_map(&:evaluation_scores)
+                              .compact
+                              .select { |s| s.created_at&.strftime("%Y/%m/%d %H:%M:%S") == date }
+
+    if @evaluation_scores.empty?
+      redirect_to sheet_path(@sheet), alert: "指定された日付の評価結果が見つかりません。" and return
+    end
+  end
+
+  def update_by_date
+    @sheet = Sheet.find_by(id: params[:sheet_id])
+    unless @sheet
+      redirect_to sheets_path, alert: "シートが見つかりません。" and return
+    end
+
+    params[:evaluation_scores].each do |id, result|
+      score = EvaluationScore.find_by(id: id)
+      score.update(result: result) if score.present?
+    end
+
+    redirect_to sheet_path(@sheet), success: "評価結果を更新しました。"
+  end
+
   private
 
   def set_sheet
-    @sheet = current_user.sheets.find(params[:sheet_id])
+    @sheet = current_user.sheets.find_by(id: params[:sheet_id])
   end
 end

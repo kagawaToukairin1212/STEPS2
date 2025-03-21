@@ -15,14 +15,19 @@ Rails.application.routes.draw do
   get "profile/edit", to: "users#edit", as: :edit_profile
   patch "profile", to: "users#update"
 
-  resources :sheets, only: [ :new, :create, :index, :show ] do
-    resources :evaluation_scores, only: [ :new, :create, :index ]
-
+  resources :sheets, only: [:new, :create, :index, :show] do
+    resources :evaluation_scores, only: [:new, :create, :index, :edit, :update] do
+    collection do
+      get "edit_by_date"  # 日付ごとに編集するページ
+      patch "update_by_date"  # 一括更新処理
+    end
+    end
     member do
       get "edit_goals"  # 目標編集ページ
       patch "update_goals"  # 目標更新処理
     end
   end
+  
   resources :questions, only: [ :index, :new, :create, :show, :edit, :update, :destroy ] do
     member do
       patch :update_status  # 解決済みにするアクション

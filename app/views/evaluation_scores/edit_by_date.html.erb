@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="fw-bold text-center"><%= @date_formatted %> の評価結果を編集</h2>
+
+  <% puts "⚠️ DEBUG: @sheet = #{@sheet.inspect}" %>
+  <% puts "⚠️ DEBUG: @sheet&.id = #{@sheet&.id}" %>
+  <% puts "⚠️ DEBUG: params[:sheet_id] = #{params[:sheet_id]}" %>
+  
+
+  <%= form_with url: update_by_date_sheet_evaluation_scores_path(@sheet, date: params[:date]), method: :patch, local: true do |form| %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>評価項目</th>
+          <th>評価結果 (0-10)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @evaluation_scores.each do |score| %>
+          <tr>
+            <td><%= score.goal.evaluation_department.name %></td>
+            <td>
+              <%= form.number_field "evaluation_scores[#{score.id}]", value: score.result, in: 0..10, class: "form-control", required: true %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= form.submit "更新する", class: "btn btn-primary" %>
+    <%= link_to "キャンセル", sheet_path(@sheet), class: "btn btn-secondary ms-2" %>
+  <% end %>
+</div>
