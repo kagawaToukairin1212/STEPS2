@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get "profile/edit", to: "users#edit", as: :edit_profile
   patch "profile", to: "users#update"
 
-  resources :sheets, only: [:new, :create, :index, :show] do
-    resources :evaluation_scores, only: [:new, :create, :index, :edit, :update] do
+  resources :sheets, only: [:new, :create, :index, :show, :destroy] do
+    resources :evaluation_scores, only: [:new, :create, :index, :edit, :update, :destroy] do
     collection do
       get "edit_by_date"  # 日付ごとに編集するページ
       patch "update_by_date"  # 一括更新処理
