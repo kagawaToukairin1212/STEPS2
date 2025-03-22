@@ -1,5 +1,5 @@
 class SheetsController < ApplicationController
-  before_action :set_sheet, only: %i[show edit_goals update_goals]
+  before_action :set_sheet, only: %i[show edit_goals update_goals destroy]
 
   def new
     @sheet = Sheet.new
@@ -62,6 +62,12 @@ class SheetsController < ApplicationController
       @evaluation_results << row
     end
   end
+
+  def destroy
+    @sheet.destroy
+    redirect_to mypage_path, notice: "シートが削除されました。"
+  end
+  
 
   def edit_goals
     @goals = @sheet.goals  # 既存の目標を取得

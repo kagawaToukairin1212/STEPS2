@@ -62,6 +62,7 @@ ja:
       password: パスワード
       update_button: 会員情報を更新する
     edit:
+      title: ユーザー情報更新ページ
       update_button: 更新する
 
   password_resets:

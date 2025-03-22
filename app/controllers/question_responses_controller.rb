@@ -31,6 +31,7 @@ class QuestionResponsesController < ApplicationController
       redirect_to question_path(@response.question), notice: "返答を削除しました。"
     end
 
+    
     private
 
     def set_response
