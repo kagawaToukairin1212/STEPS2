@@ -74,7 +74,14 @@
 
 
   <%= link_to "目標を変更する", edit_goals_sheet_path(@sheet), class: "btn btn-warning mt-3" %>
-  <%= link_to "シートを削除する", sheet_path(@sheet), data: { turbo_method: :delete, confirm: "本当にこのシートを削除しますか？" }, class: "btn btn-danger mt-3 ms-2" %>
+  <%= button_to "シートを削除する", sheet_path(@sheet),
+    method: :delete,
+    data: {
+      turbo: false,  # ← ✅ ここがポイント
+      confirm: "本当にこのシートを削除しますか？"
+    },
+    class: "btn btn-danger mt-3 ms-2" %>
+
 
 
 </div>

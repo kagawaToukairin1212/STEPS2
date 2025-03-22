@@ -65,7 +65,7 @@ class SheetsController < ApplicationController
 
   def destroy
     @sheet.destroy
-    redirect_to sheets_path, notice: "シートが削除されました。"
+    redirect_to mypage_path, notice: "シートが削除されました。"
   end
   
 
