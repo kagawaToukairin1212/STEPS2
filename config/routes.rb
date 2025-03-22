@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     collection do
       get "edit_by_date"  # 日付ごとに編集するページ
       patch "update_by_date"  # 一括更新処理
+      delete "destroy_by_date"
     end
     end
     member do

@@ -65,6 +65,27 @@ class EvaluationScoresController < ApplicationController
     redirect_to sheet_path(@sheet), success: "評価結果を更新しました。"
   end
 
+  def destroy_by_date
+    @sheet = Sheet.find(params[:sheet_id])
+    date_str = params[:date]
+  
+    begin
+      datetime = DateTime.parse(date_str)
+    rescue ArgumentError
+      redirect_to sheet_path(@sheet), alert: "無効な日付です。" and return
+    end
+  
+    scores = EvaluationScore.joins(:goal).where(goals: { sheet_id: @sheet.id })
+                            .where("evaluation_scores.created_at BETWEEN ? AND ?", datetime.beginning_of_minute, datetime.end_of_minute)
+  
+    if scores.any?
+      scores.destroy_all
+      redirect_to sheet_path(@sheet), notice: "評価結果を削除しました。"
+    else
+      redirect_to sheet_path(@sheet), alert: "該当する評価結果が見つかりませんでした。"
+    end
+  end
+
   private
 
   def set_sheet
