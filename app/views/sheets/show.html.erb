@@ -77,8 +77,8 @@
   <%= button_to "シートを削除する", sheet_path(@sheet),
     method: :delete,
     data: {
-      turbo: false,  # ← ✅ ここがポイント
-      confirm: "本当にこのシートを削除しますか？"
+      
+      turbo_confirm: "本当にこのシートを削除してもよろしいですか？"
     },
     class: "btn btn-danger mt-3 ms-2" %>
 

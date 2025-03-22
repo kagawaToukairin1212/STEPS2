@@ -8,6 +8,7 @@ class EvaluationScoresController < ApplicationController
 
   def create
     EvaluationScore.transaction do
+      common_time = Time.current
       @evaluation_scores = params[:scores].map do |score_params|
         @sheet.goals.find(score_params[:goal_id]) # goalがこのsheetに属するか確認
         EvaluationScore.create!(score_params.permit(:goal_id, :result))
