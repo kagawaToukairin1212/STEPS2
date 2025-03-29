@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create]
     before_action :set_user, only: %i[profile edit update]
 
     def new
@@ -41,9 +41,9 @@ class UsersController < ApplicationController
 
     private
 
-    def set_user
-      @user = current_user  # ログイン中のユーザー情報をセット！
-    end
+      def set_user
+        @user = current_user  # ログイン中のユーザー情報をセット！
+      end
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)

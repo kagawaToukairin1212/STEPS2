@@ -1,14 +1,14 @@
 <div class="container my-5">
-  <h1 class="fw-bold text-center mb-4"><%= t('questions.index.title') %></h1>
+  <h1 class="fw-bold text-center mb-4"><%= t("questions.index.title") %></h1>
 
   <!-- フィルターボタン -->
   <div class="btn-group d-flex mb-3" role="group">
-    <%= link_to t('questions.index.create_question'), new_question_path, class: 'btn btn-outline-primary flex-fill' %>
-    <%= link_to t('questions.index.all_questions'), questions_path, class: "btn #{params[:filter].blank? ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
-    <%= link_to t('questions.index.unresolved_questions'), questions_path(filter: 'unresolved'), class: "btn #{params[:filter] == 'unresolved' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
-    <%= link_to t('questions.index.resolved_questions'), questions_path(filter: 'resolved'), class: "btn #{params[:filter] == 'resolved' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
-    <%= link_to t('questions.index.my_questions'), questions_path(filter: 'my_questions'), class: "btn #{params[:filter] == 'my_questions' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
-    <%= link_to t('questions.index.answered_questions'), questions_path(filter: 'answered'), class: "btn #{params[:filter] == 'answered' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
+    <%= link_to t("questions.index.create_question"), new_question_path, class: "btn btn-outline-primary flex-fill" %>
+    <%= link_to t("questions.index.all_questions"), questions_path, class: "btn #{params[:filter].blank? ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
+    <%= link_to t("questions.index.unresolved_questions"), questions_path(filter: "unresolved"), class: "btn #{params[:filter] == 'unresolved' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
+    <%= link_to t("questions.index.resolved_questions"), questions_path(filter: "resolved"), class: "btn #{params[:filter] == 'resolved' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
+    <%= link_to t("questions.index.my_questions"), questions_path(filter: "my_questions"), class: "btn #{params[:filter] == 'my_questions' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
+    <%= link_to t("questions.index.answered_questions"), questions_path(filter: "answered"), class: "btn #{params[:filter] == 'answered' ? 'btn-primary' : 'btn-outline-primary'} flex-fill" %>
   </div>
 
   <!-- 質問リスト -->

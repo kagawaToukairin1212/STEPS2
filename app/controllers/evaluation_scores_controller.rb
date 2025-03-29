@@ -1,5 +1,5 @@
 class EvaluationScoresController < ApplicationController
-  before_action :set_sheet, only: [:new, :create, :index, :edit_by_date, :update_by_date]
+  before_action :set_sheet, only: [ :new, :create, :index, :edit_by_date, :update_by_date ]
 
   def new
     @goals = @sheet.goals
@@ -68,16 +68,16 @@ class EvaluationScoresController < ApplicationController
   def destroy_by_date
     @sheet = Sheet.find(params[:sheet_id])
     date_str = params[:date]
-  
+
     begin
       datetime = DateTime.parse(date_str)
     rescue ArgumentError
       redirect_to sheet_path(@sheet), alert: "無効な日付です。" and return
     end
-  
+
     scores = EvaluationScore.joins(:goal).where(goals: { sheet_id: @sheet.id })
                             .where("evaluation_scores.created_at BETWEEN ? AND ?", datetime.beginning_of_minute, datetime.end_of_minute)
-  
+
     if scores.any?
       scores.destroy_all
       redirect_to sheet_path(@sheet), notice: "評価結果を削除しました。"
@@ -88,7 +88,7 @@ class EvaluationScoresController < ApplicationController
 
   private
 
-  def set_sheet
-    @sheet = current_user.sheets.find_by(id: params[:sheet_id])
-  end
+    def set_sheet
+      @sheet = current_user.sheets.find_by(id: params[:sheet_id])
+    end
 end

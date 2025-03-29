@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto">
-        <h1><%= t('users.edit.title') %></h1>
+        <h1><%= t("users.edit.title") %></h1>
         <%= form_with model: @user, url: profile_path, method: :patch, local: true do |f| %>
         <div class="mb-3">
             <%= f.label :name, class: "form-label" %>
@@ -19,10 +19,9 @@
             <%= f.label :password_confirmation, class: "form-label" %>
             <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
-            <%= f.submit t('users.edit.update_button'), class: "btn btn-primary" %>
+            <%= f.submit t("users.edit.update_button"), class: "btn btn-primary" %>
         <% end %>
 
       </div>
     </div>
 </div>
-  

@@ -28,10 +28,10 @@
 
     <%= form.submit "更新する", class: "btn btn-primary" %>
     <%= link_to "キャンセル", sheet_path(@sheet), class: "btn btn-secondary ms-2" %>
-  <% end %> 
+  <% end %>
 
   <!-- ✅ 完全にformの外にボタンを置く -->
-  <%= button_to "評価結果を削除する", 
+  <%= button_to "評価結果を削除する",
       destroy_by_date_sheet_evaluation_scores_path(@sheet, date: params[:date]),
       method: :delete,
       data: { turbo_confirm: "この評価結果を削除しますか？" },

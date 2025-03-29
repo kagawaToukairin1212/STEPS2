@@ -1,6 +1,6 @@
 <%= form_with model: @sheet, url: sheets_path, local: true do |f| %>
   <div class="form-group">
-    <%= f.label :title, t('sheet.new.title') %>
+    <%= f.label :title, t("sheet.new.title") %>
     <%= f.text_field :title, class: "form-control", required: true %>
   </div>
 
@@ -9,11 +9,10 @@
       <div class="form-group">
         <label for="evaluation_item_<%= index %>"><%= item.name %></label>
         <input type="hidden" name="evaluation_items[][evaluation_department_id]" value="<%= item.id %>">
-        <textarea id="evaluation_item_<%= index %>" name="evaluation_items[][goal]" class="form-control" placeholder=<%= t('sheet.new.goal_placeholder') %> required></textarea>
+        <textarea id="evaluation_item_<%= index %>" name="evaluation_items[][goal]" class="form-control" placeholder=<%= t("sheet.new.goal_placeholder") %>></textarea>
       </div>
     <% end %>
   </div>
 
-  <button type="submit" class="btn btn-primary"><%= t('sheet.new.submit') %></button>
+  <button type="submit" class="btn btn-primary"><%= t("sheet.new.submit") %></button>
 <% end %>
-  

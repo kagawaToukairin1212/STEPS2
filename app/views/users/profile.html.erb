@@ -1,23 +1,23 @@
 <div class="container my-5">
-  <h1 class="text-center mb-4"><%= t('users.profile.title') %></h1>
+  <h1 class="text-center mb-4"><%= t("users.profile.title") %></h1>
 
   <div class="card mx-auto" style="max-width: 500px;">
     <div class="card-body">
       <table class="table">
         <tr>
-          <th><%= t('users.profile.name') %></th>
+          <th><%= t("users.profile.name") %></th>
           <td><%= @user.name %></td>
         </tr>
         <tr>
-          <th><%= t('users.profile.email') %></th>
+          <th><%= t("users.profile.email") %></th>
           <td><%= @user.email %></td>
         </tr>
         <tr>
-          <th><%= t('users.profile.password') %></th>
+          <th><%= t("users.profile.password") %></th>
           <td>******</td>
         </tr>
       </table>
-      <%= link_to t('users.profile.update_button'), edit_profile_path, class: "btn btn-primary btn-block" %>
+      <%= link_to t("users.profile.update_button"), edit_profile_path, class: "btn btn-primary btn-block" %>
     </div>
   </div>
 </div>

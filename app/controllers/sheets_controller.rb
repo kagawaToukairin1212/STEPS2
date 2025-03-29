@@ -67,7 +67,7 @@ class SheetsController < ApplicationController
     @sheet.destroy
     redirect_to mypage_path, notice: "シートが削除されました。"
   end
-  
+
 
   def edit_goals
     @goals = @sheet.goals  # 既存の目標を取得
@@ -84,9 +84,9 @@ class SheetsController < ApplicationController
 
   private
 
-  def sheet_params
-    params.require(:sheet).permit(:title, goals_attributes: [ :id, :value ])
-  end
+    def sheet_params
+      params.require(:sheet).permit(:title, goals_attributes: [ :id, :value ])
+    end
 
   def set_sheet
     @sheet = Sheet.find_by(id: params[:id])

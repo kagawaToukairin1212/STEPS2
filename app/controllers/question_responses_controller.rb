@@ -1,9 +1,9 @@
 class QuestionResponsesController < ApplicationController
-    before_action :require_login
+  before_action :require_login
     before_action :set_response, only: [ :edit, :update, :destroy ]
     before_action :authorize_user, only: [ :edit, :update, :destroy ]
     def create
-        @question = Question.find(params[:question_id])
+      @question = Question.find(params[:question_id])
         @response = @question.question_responses.build(response_params)
         @response.user = current_user
 
@@ -31,20 +31,20 @@ class QuestionResponsesController < ApplicationController
       redirect_to question_path(@response.question), notice: "返答を削除しました。"
     end
 
-    
+
     private
 
-    def set_response
+      def set_response
         @response = QuestionResponse.find(params[:id])
-    end
+      end
 
     def response_params
-        params.require(:question_response).permit(:subject, :content)
+      params.require(:question_response).permit(:subject, :content)
     end
 
     def authorize_user
-        unless @response.user == current_user
-          redirect_to question_path(@response.question), alert: "他のユーザーの返答は編集できません。"
-        end
+      unless @response.user == current_user
+        redirect_to question_path(@response.question), alert: "他のユーザーの返答は編集できません。"
+      end
     end
 end
