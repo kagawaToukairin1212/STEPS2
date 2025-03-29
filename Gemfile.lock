@@ -156,6 +156,7 @@ GEM
     groupdate (6.5.1)
       activesupport (>= 7)
     hashie (5.0.0)
+    htmlbeautifier (1.4.3)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.1.0)
@@ -457,6 +458,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   groupdate
+  htmlbeautifier
   importmap-rails
   jbuilder
   jsbundling-rails

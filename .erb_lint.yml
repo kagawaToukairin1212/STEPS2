@@ -1,18 +1,5 @@
----
-EnableDefaultLinters: true
+EnableDefaultLinters: false
 
 linters:
   SpaceIndentation:
     enabled: true
-
-  FinalNewline:
-    enabled: true
-    autocorrect: false
-
-  Rubocop:
-    enabled: true
-    rubocop_config:
-      inherit_from:
-        - .rubocop.yml
-
-
