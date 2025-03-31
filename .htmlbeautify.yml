@@ -1,0 +1,5 @@
+indent: 2            # インデント幅（半角スペース）
+blank_lines: false   # 不要な空行を削除する
+keep_blank_lines: 1  # 空行は最大何行まで残すか
+short_doctype: true  # <!DOCTYPE html> を短縮形で出力
+keep_indentation: false  # 既存のインデントを無視して再整形

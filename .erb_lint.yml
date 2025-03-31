@@ -1,0 +1,5 @@
+EnableDefaultLinters: false
+
+linters:
+  SpaceIndentation:
+    enabled: true

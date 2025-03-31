@@ -1,15 +1,15 @@
 <div class="container text-center py-5">
   <!-- タイトル & サブタイトル -->
   <div class="mb-4">
-    <h1 class="fw-bold"><%= t('static_pages.top.title') %></h1>
+    <h1 class="fw-bold"><%= t("static_pages.top.title") %></h1>
     <p class="fs-5 text-secondary">運動能力を向上させる目標を立てて、成長を記録しよう！</p>
   </div>
 
   <!-- コーディネーションとは -->
   <div class="bg-light p-4 rounded">
-    <h2 class="fw-bold"><%= t('static_pages.top.coordination_title') %></h2>
-    <p class="fs-6"><%= t('static_pages.top.coordination_description') %></p>
-    <%= link_to t('static_pages.top.learn_more_button'), coordination_path, class: "btn btn-info btn-lg text-white" %>
+    <h2 class="fw-bold"><%= t("static_pages.top.coordination_title") %></h2>
+    <p class="fs-6"><%= t("static_pages.top.coordination_description") %></p>
+    <%= link_to t("static_pages.top.learn_more_button"), coordination_path, class: "btn btn-info btn-lg text-white" %>
   </div>
 
   <!-- STEPSの特徴 -->
@@ -47,7 +47,7 @@
   <div class="mt-5">
     <h3 class="fw-bold">さあ、始めよう！</h3>
     <div class="d-grid gap-2 d-md-flex justify-content-center mt-3">
-      <%= link_to 'ログインしてアプリを使ってみる！', login_path, class: "btn btn-primary btn-lg px-4" %>
+      <%= link_to "ログインしてアプリを使ってみる！", login_path, class: "btn btn-primary btn-lg px-4" %>
     </div>
   </div>
 </div>

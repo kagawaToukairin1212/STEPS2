@@ -65,15 +65,5 @@ SNSや直接の宣伝などが主となると思われます。
 12/23 本リリースに向けた実装
 
 
-push test:test
 
-css 実行手順
-
-app/views/layouts/application.html.erb
-　<%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-app/assets/stylesheets/application.bootstrap.scss
-app/assets/config/manifest.js
-package.json
-public
-
-更新用2025/03/07
+更新用2025/03/31

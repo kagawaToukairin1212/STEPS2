@@ -1,27 +1,27 @@
 <div class="container mt-5">
   <!-- コーディネーションとは -->
   <div class="bg-light p-4 rounded shadow-sm">
-    <h1 class="text-center fw-bold"><%= t('coordination.title') %></h1>
-    <p class="text-center"><%= t('coordination.intro') %></p>
+    <h1 class="text-center fw-bold"><%= t("coordination.title") %></h1>
+    <p class="text-center"><%= t("coordination.intro") %></p>
   </div>
 
   <!-- コーディネーションの歴史 -->
   <div class="bg-light p-4 rounded shadow-sm mt-4">
-    <h2 class="text-center fw-bold"><i class="bi bi-star-fill text-warning"></i> <%= t('coordination.history_title') %></h2>
-    <p><%= t('coordination.history_description') %></p>
+    <h2 class="text-center fw-bold"><i class="bi bi-star-fill text-warning"></i> <%= t("coordination.history_title") %></h2>
+    <p><%= t("coordination.history_description") %></p>
   </div>
 
   <!-- コーディネーションを鍛えるメリット -->
   <div class="text-center mt-5">
-    <h2 class="fw-bold"><i class="bi bi-award-fill text-danger"></i> <%= t('coordination.benefits_title') %></h2>
+    <h2 class="fw-bold"><i class="bi bi-award-fill text-danger"></i> <%= t("coordination.benefits_title") %></h2>
   </div>
-  
+
   <div class="row row-cols-1 row-cols-md-2 g-3 mt-3">
     <div class="col">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h5 class="card-title text-primary">✅ <%= t('coordination.benefits.sports_skill') %></h5>
-          <p class="card-text"><%= t('coordination.benefits.sports_skill_description') %></p>
+          <h5 class="card-title text-primary">✅ <%= t("coordination.benefits.sports_skill") %></h5>
+          <p class="card-text"><%= t("coordination.benefits.sports_skill_description") %></p>
         </div>
       </div>
     </div>
@@ -29,8 +29,8 @@
     <div class="col">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h5 class="card-title text-success">✅ <%= t('coordination.benefits.enjoyment') %></h5>
-          <p class="card-text"><%= t('coordination.benefits.enjoyment_description') %></p>
+          <h5 class="card-title text-success">✅ <%= t("coordination.benefits.enjoyment") %></h5>
+          <p class="card-text"><%= t("coordination.benefits.enjoyment_description") %></p>
         </div>
       </div>
     </div>
@@ -38,8 +38,8 @@
     <div class="col">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h5 class="card-title text-warning">✅ <%= t('coordination.benefits.injury_prevention') %></h5>
-          <p class="card-text"><%= t('coordination.benefits.injury_prevention_description') %></p>
+          <h5 class="card-title text-warning">✅ <%= t("coordination.benefits.injury_prevention") %></h5>
+          <p class="card-text"><%= t("coordination.benefits.injury_prevention_description") %></p>
         </div>
       </div>
     </div>
@@ -47,25 +47,22 @@
     <div class="col">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h5 class="card-title text-info">✅ <%= t('coordination.benefits.daily_life') %></h5>
-          <p class="card-text"><%= t('coordination.benefits.daily_life_description') %></p>
+          <h5 class="card-title text-info">✅ <%= t("coordination.benefits.daily_life") %></h5>
+          <p class="card-text"><%= t("coordination.benefits.daily_life_description") %></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
 <div class="container mt-5">
   <!-- コーディネーション能力とは -->
   <div class="bg-light p-4 rounded shadow-sm">
-    <h2 class="text-center fw-bold"><%= t('coordination.abilities_title') %></h2>
+    <h2 class="text-center fw-bold"><%= t("coordination.abilities_title") %></h2>
   </div>
 
   <div class="row row-cols-1 g-3 mt-4">
-    <% t('coordination.abilities').each do |ability| %>
+    <% t("coordination.abilities").each do |ability| %>
       <div class="col">
         <div class="bg-light p-4 rounded shadow-sm position-relative">
           <h3 class="fw-bold"><i class="bi bi-lightbulb-fill text-warning"></i> <%= ability[:name] %></h3>
@@ -80,19 +77,16 @@
   </div>
 </div>
 
-
-
-
 <div class="container mt-5">
   <!-- 具体的な目標の立て方 -->
   <div class="bg-light p-4 rounded shadow-sm text-center">
-    <h2 class="fw-bold"><%= t('coordination.goal_setting_title') %></h2>
-    <p class="text-muted"><i class="bi bi-lightbulb-fill text-warning"></i> <%= t('coordination.goal_setting_intro') %></p>
+    <h2 class="fw-bold"><%= t("coordination.goal_setting_title") %></h2>
+    <p class="text-muted"><i class="bi bi-lightbulb-fill text-warning"></i> <%= t("coordination.goal_setting_intro") %></p>
   </div>
 
   <!-- 各スポーツごとの目標 -->
   <div class="row row-cols-1 g-4 mt-4">
-    <% t('coordination.sports').each do |sport| %>
+    <% t("coordination.sports").each do |sport| %>
       <div class="col">
         <div class="bg-light p-4 rounded shadow-sm">
           <h3 class="fw-bold text-center"><%= sport[:name] %></h3>
@@ -100,8 +94,8 @@
             <table class="table table-bordered text-center">
               <thead class="table-light">
                 <tr>
-                  <th class="w-50"><%= t('coordination.goal_setting.ability') %></th>
-                  <th class="w-50"><%= t('coordination.goal_setting.example') %></th>
+                  <th class="w-50"><%= t("coordination.goal_setting.ability") %></th>
+                  <th class="w-50"><%= t("coordination.goal_setting.example") %></th>
                 </tr>
               </thead>
               <tbody>
@@ -119,6 +113,3 @@
     <% end %>
   </div>
 </div>
-
-
-

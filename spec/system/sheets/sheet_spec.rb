@@ -5,15 +5,15 @@ RSpec.describe 'シート作成', type: :system do
 
   describe 'シート作成' do
     before do
-        EvaluationDepartment.create!([
-            { name: 'リズム能力', default: true },
-            { name: 'バランス能力', default: true },
-            { name: '変換能力', default: true },
-            { name: '反応能力', default: true },
-            { name: '連結能力', default: true },
-            { name: '定位能力', default: true },
-            { name: '識別能力', default: true }
-        ])
+      EvaluationDepartment.create!([
+          { name: 'リズム能力', default: true },
+          { name: 'バランス能力', default: true },
+          { name: '変換能力', default: true },
+          { name: '反応能力', default: true },
+          { name: '連結能力', default: true },
+          { name: '定位能力', default: true },
+          { name: '識別能力', default: true }
+      ])
 
         login_as(user)
     end

@@ -4,7 +4,7 @@ import Chart from "chart.js/auto";
 // Stimulus コントローラーを作成
 export default class extends Controller {
     connect() {
-        console.log("🚀 Radar Graph Controller Loaded!");
+        // console.log("🚀 Radar Graph Controller Loaded!");
         // HTML 要素 (canvas) を取得
         const ctx = this.element;
 

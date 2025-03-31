@@ -1,17 +1,17 @@
 <div class="container my-5">
-  <h1 class="fw-bold text-center mb-4"><%= t('questions.edit.title') %></h1>
+  <h1 class="fw-bold text-center mb-4"><%= t("questions.edit.title") %></h1>
 
   <div class="card p-4 shadow-sm">
     <%= form_with(model: @question, local: true) do |form| %>
       <div class="mb-3">
-        <%= form.label :subject, t('questions.edit.subject'), class: 'form-label fw-bold' %>
-        <%= form.text_field :subject, class: 'form-control', value: @question.subject %>
+        <%= form.label :subject, t("questions.edit.subject"), class: "form-label fw-bold" %>
+        <%= form.text_field :subject, class: "form-control", value: @question.subject %>
       </div>
       <div class="mb-3">
-        <%= form.label :content, t('questions.edit.content'), class: 'form-label fw-bold' %>
-        <%= form.text_area :content, class: 'form-control', rows: 5, value: @question.content %>
+        <%= form.label :content, t("questions.edit.content"), class: "form-label fw-bold" %>
+        <%= form.text_area :content, class: "form-control", rows: 5, value: @question.content %>
       </div>
-      <%= form.submit t('questions.edit.submit'), class: 'btn btn-warning w-100' %>
+      <%= form.submit t("questions.edit.submit"), class: "btn btn-warning w-100" %>
     <% end %>
   </div>
 </div>

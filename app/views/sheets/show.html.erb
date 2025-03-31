@@ -37,8 +37,6 @@
         </div>
     </div>
 
-
-
 <div class="container mt-5">
     <h3 class="fw-bold text-center">評価結果</h3>
     <div class="table-responsive">
@@ -71,17 +69,13 @@
     </div>
 </div>
 
-
-
   <%= link_to "目標を変更する", edit_goals_sheet_path(@sheet), class: "btn btn-warning mt-3" %>
   <%= button_to "シートを削除する", sheet_path(@sheet),
     method: :delete,
     data: {
-      
+
       turbo_confirm: "本当にこのシートを削除してもよろしいですか？"
     },
     class: "btn btn-danger mt-3 ms-2" %>
-
-
 
 </div>
