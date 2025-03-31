@@ -4,7 +4,7 @@ import Chart from "chart.js/auto";
 // Stimulus Controller 定義
 export default class extends Controller {
   connect() {
-    console.log("📊 Bar Chart Controller Loaded!");
+    // console.log("📊 Bar Chart Controller Loaded!");
 
     // `canvas` 要素の `context` を取得
     const ctx = this.element.getContext("2d");

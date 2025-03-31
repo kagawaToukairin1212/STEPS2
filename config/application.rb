@@ -22,13 +22,13 @@ module Myapp
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    puts "Before modification: #{config.eager_load_paths.frozen?}"
+    # puts "Before modification: #{config.eager_load_paths.frozen?}"
 
     # Prevent FrozenError by duplicating the array before modifying
     config.eager_load_paths = config.eager_load_paths.dup
     config.eager_load_paths << Rails.root.join("extras")
 
-    puts "After modification: #{config.eager_load_paths.frozen?}"
+    # puts "After modification: #{config.eager_load_paths.frozen?}"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
   end

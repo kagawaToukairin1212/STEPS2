@@ -28,7 +28,7 @@ class EvaluationScoresController < ApplicationController
 
   def edit_by_date
     # デバッグ出力
-    puts "DEBUG: sheet_id = #{params[:sheet_id]}"
+    # puts "DEBUG: sheet_id = #{params[:sheet_id]}"
     @sheet = Sheet.find_by(id: params[:sheet_id])
     unless @sheet
       redirect_to sheets_path, alert: "シートが見つかりません。" and return
