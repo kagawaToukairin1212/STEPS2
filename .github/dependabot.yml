@@ -16,6 +16,10 @@ updates:
       - dependency-name: "brakeman"
       - dependency-name: "debug"
       - dependency-name: "rails"
+      - dependency-name: "stringio"
+      - dependency-name: "cssbundling-rails"
+      - dependency-name: "pry-byebug"
+      - dependency-name: "rubocop-rails-omakase"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
