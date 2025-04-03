@@ -5,6 +5,17 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+  ignore:
+      - dependency-name: "selenium-webdriver"
+      - dependency-name: "thruster"
+      - dependency-name: "kamal"
+      - dependency-name: "solid_cache"
+      - dependency-name: "solid_queue"
+      - dependency-name: "puma"
+      - dependency-name: "solid_cable"
+      - dependency-name: "brakeman"
+      - dependency-name: "debug"
+      - dependency-name: "rails"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
